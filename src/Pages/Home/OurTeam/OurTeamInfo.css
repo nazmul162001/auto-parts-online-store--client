@@ -1,0 +1,6 @@
+.our-team img{
+  transition: transform .5s ease-in-out;
+}
+.hero-content:hover  img{
+  transform: scale(1.05);
+}

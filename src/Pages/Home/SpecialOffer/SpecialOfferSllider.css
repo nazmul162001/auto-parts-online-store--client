@@ -35,3 +35,6 @@
 .my-slider img{
   width: 350px !important;
 }
+.my-slider{
+  padding-bottom: 50px;
+}
