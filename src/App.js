@@ -4,6 +4,7 @@ import Navbar from './Pages/Shared/Navbar';
 import Login from './Pages/Login/Login';
 import NavbarMini from './Pages/Shared/NavbarMini';
 import Footer from './Pages/Shared/Footer';
+import 'tw-elements';
 
 function App() {
   return (

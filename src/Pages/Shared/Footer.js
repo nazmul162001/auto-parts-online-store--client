@@ -10,7 +10,7 @@ const Footer = () => {
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
     }}
-     class="footer p-10 bg-base-200 text-white">
+     class="footer p-10 bg-base-200 text-white mt-[380px] lg:mt-0">
       <div>
         <span class="footer-title">MENU</span>
         <a class="link link-hover hover:text-primary">Home</a>

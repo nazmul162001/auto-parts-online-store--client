@@ -34,5 +34,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [require('daisyui')],
+  plugins: [require('daisyui', 'tw-elements/dist/plugin')],
 };
