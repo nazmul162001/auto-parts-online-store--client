@@ -1,9 +1,10 @@
 import React from 'react';
+import Login from '../Login/Login';
 
 const HomePage = () => {
   return (
     <div>
-      <h2 className="text-3xl">this is homepage</h2>
+      <Login />
     </div>
   );
 };

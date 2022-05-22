@@ -1,14 +1,15 @@
 import React from 'react';
-import logo from '../assets/images/logo-1.png';
+import { NavLink } from 'react-router-dom';
+import logo from '../../assets/images/logo-1.png';
 
-const Navbar = ({ children }) => {
+const Navbar = ({ children }) => {  
   return (
     <div>
       <div class="drawer">
         <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content flex flex-col">
           {/* <!-- Navbar --> */}
-          <div class="w-full navbar bg-primary">
+          <div class="w-full navbar bg-primary h-24 px-12 text-white sticky top-0">
             {/* flex flex-row-reverse md:flex-row */}
             <div class="flex-none lg:hidden">
               <label for="my-drawer-3" class="btn btn-square btn-ghost">
@@ -27,29 +28,29 @@ const Navbar = ({ children }) => {
                 </svg>
               </label>
             </div>
-            <div class="flex-1 px-2 mx-2">
+            <div class="flex-1">
               <img className="w-12" src={logo} alt="/logo" />
               <h2 className="text-3xl text-white font-bold">Auto Parts</h2>
             </div>
             <div class="flex-none hidden lg:block">
               <ul class="menu menu-horizontal">
                 <li>
-                  <a>Home</a>
+                  <NavLink to='/'>Home</NavLink>
                 </li>
                 <li>
-                  <a>Dashboard</a>
+                  <NavLink to='/dashboard'>Dashboard</NavLink>
                 </li>
                 <li>
-                  <a>Blogs</a>
+                  <NavLink to='/blogs'>Blogs</NavLink>
                 </li>
                 <li>
-                  <a>Login</a>
+                  <NavLink to='/login'>Login</NavLink>
                 </li>
               </ul>
             </div>
           </div>
           {/* <!-- Page content here --> */}
-          Content
+          {children}
         </div>
         <div class="drawer-side">
           <label for="my-drawer-3" class="drawer-overlay"></label>
@@ -73,16 +74,16 @@ const Navbar = ({ children }) => {
               <h2 className="text-3xl text-white font-bold">Auto Parts</h2>
             </div>
             <li>
-              <a className='mx-auto'>Home</a>
+              <NavLink to='/' className='mx-auto'>Home</NavLink>
             </li>
             <li>
-              <a className='mx-auto'>Dashboard</a>
+              <NavLink to='/' className='mx-auto'>Dashboard</NavLink>
             </li>
             <li>
-              <a className='mx-auto'>Blogs</a>
+              <NavLink to='/' className='mx-auto'>Blogs</NavLink>
             </li>
             <li>
-              <a className='mx-auto'>Login</a>
+              <NavLink to='/' className='mx-auto'>Login</NavLink>
             </li>
           </ul>
         </div>

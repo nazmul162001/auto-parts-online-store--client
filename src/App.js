@@ -1,14 +1,19 @@
-import { Route, Routes } from "react-router-dom";
-import HomePage from "./Home/HomePage";
-import Navbar from "./Shared/Navbar";
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './Pages/Home/HomePage';
+import Navbar from './Pages/Shared/Navbar';
+import Login from './Pages/Login/Login';
+import NavbarMini from './Pages/Shared/NavbarMini';
 
 function App() {
   return (
     <div>
-      <Navbar></Navbar>
-      <Routes>
-        <Route path="/" element={<HomePage />}></Route>
-      </Routes>
+      <Navbar>
+        <NavbarMini />
+        <Routes>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+        </Routes>
+      </Navbar>
     </div>
   );
 }
