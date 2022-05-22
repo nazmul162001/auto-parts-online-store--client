@@ -30,7 +30,7 @@ const SpecialOfferSlider = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="my-slider grid grid-cols-1 md:grid-cols-2 justify-center items-center">
+          <div className="my-slider md:px-28 grid grid-cols-1 md:grid-cols-2 justify-center items-center">
             <div className="img">
               <img src={carBreak} alt="" />
             </div>
@@ -42,7 +42,7 @@ const SpecialOfferSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="my-slider grid grid-cols-1 md:grid-cols-2 justify-center items-center px-12">
+          <div className="my-slider md:px-28 grid grid-cols-1 md:grid-cols-2 justify-center items-center px-12">
             <div className="img">
               <img src={tyres} alt="" />
             </div>
@@ -54,7 +54,7 @@ const SpecialOfferSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="my-slider grid grid-cols-1 md:grid-cols-2 justify-center items-center px-12">
+          <div className="my-slider md:px-28 grid grid-cols-1 md:grid-cols-2 justify-center items-center px-12">
             <div className="img">
               <img src={turbine} alt="" />
             </div>
@@ -66,7 +66,7 @@ const SpecialOfferSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="my-slider grid grid-cols-1 md:grid-cols-2 justify-center items-center px-12">
+          <div className="my-slider md:px-28 grid grid-cols-1 md:grid-cols-2 justify-center items-center px-12">
             <div className="img">
               <img src={oil} alt="" />
             </div>
@@ -78,7 +78,7 @@ const SpecialOfferSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="my-slider grid grid-cols-1 md:grid-cols-2 justify-center items-center px-12">
+          <div className="my-slider md:px-28 grid grid-cols-1 md:grid-cols-2 justify-center items-center px-12">
             <div className="img">
               <img src={clamping} alt="" />
             </div>
@@ -90,7 +90,7 @@ const SpecialOfferSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="my-slider grid grid-cols-1 md:grid-cols-2 justify-center items-center px-12">
+          <div className="my-slider md:px-28 grid grid-cols-1 md:grid-cols-2 justify-center items-center px-12">
             <div className="img">
               <img src={Inflator} alt="" />
             </div>

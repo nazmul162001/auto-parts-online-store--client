@@ -6,7 +6,7 @@ const NavbarMini = () => {
     <div className='hidden lg:block static z-10'>
       <div className="second-navbar h-10 my-3 text-white px-12 flex justify-between items-center">
         <div className='flex items-center'>
-          <ul className="menu menu-horizontal p-0 btn btn-black rounded-none bg-black mr-8">
+          <ul className="menu menu-horizontal p-0 btn btn-black rounded-none bg-black mr-8 text-white">
             <li tabindex="0">
               <a>
                 <svg

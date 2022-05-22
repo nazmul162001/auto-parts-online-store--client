@@ -57,7 +57,7 @@ const OurTeamInfo = () => {
               src={team1}
               class="max-w-sm rounded-lg shadow-2xl"
             />
-            <div>
+            <div className=''>
               <h1 class="text-xl font-bold">Jose Aldo</h1>
               <h3 className="text-base text-primary font-bold">
                 Carts parts Manager
