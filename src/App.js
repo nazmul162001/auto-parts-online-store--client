@@ -14,8 +14,8 @@ function App() {
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/login" element={<Login />}></Route>
         </Routes>
+        <Footer />
       </Navbar>
-      <Footer />
     </div>
   );
 }

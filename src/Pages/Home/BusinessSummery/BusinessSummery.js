@@ -6,8 +6,8 @@ const BusinessSummery = () => {
   return (
     <div className="business-info mt-12">
       <h2 className="text-center text-5xl text-primary opacity-60 font-bold">MILLIONS BUSINESS TRUST US</h2>
+      <div className='h-1 bg-primary w-2/5 mx-auto opacity-60 mt-2'></div>
       <h3 className='text-center text-xl text-gray-500 font-bold py-3 '>TRY TO UNDERSTAND USERS EXPECTATION</h3>
-      <div className='h-1 bg-primary w-48 mx-auto opacity-60'></div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-between items-center px-12 my-12 gap-3">
         <BusinessSummeryInfo
           cardTitle="Office In Country"

@@ -41,10 +41,10 @@ const Parts = () => {
   return (
     <div className="my-16 px-12">
       <div className="service-title text-center">
-        <h3 className="text-primary text-4xl font-bold opacity-60">
+        <h3 className="text-primary text-5xl font-bold opacity-60">
           Tools/Parts
         </h3>
-        <div className="line w-56 opacity-50 mt-2 h-[2px] bg-primary mx-auto"></div>
+        <div className="line w-56 opacity-60 mt-2 h-[2px] bg-primary mx-auto"></div>
         <h2 className="text-gray-500 text-xl py-2">
           Available Parts In Our Store
         </h2>
