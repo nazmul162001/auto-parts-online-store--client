@@ -41,6 +41,9 @@ const Navbar = ({ children }) => {
                   <NavLink to='/dashboard'>Dashboard</NavLink>
                 </li>
                 <li>
+                  <NavLink to='/portfolio'>Portfolio</NavLink>
+                </li>
+                <li>
                   <NavLink to='/blogs'>Blogs</NavLink>
                 </li>
                 <li>
@@ -78,6 +81,9 @@ const Navbar = ({ children }) => {
             </li>
             <li style={{borderBottom: '1px dotted white'}}>
               <NavLink to='/' className=''>Dashboard</NavLink>
+            </li>
+            <li style={{borderBottom: '1px dotted white'}}>
+              <NavLink to='/' className=''>Portfolio</NavLink>
             </li>
             <li style={{borderBottom: '1px dotted white'}}>
               <NavLink to='/' className=''>Blogs</NavLink>
