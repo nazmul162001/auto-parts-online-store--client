@@ -1,8 +1,9 @@
 import React from 'react';
+import { FiPhoneCall } from 'react-icons/fi';
 
 const NavbarMini = () => {
   return (
-    <>
+    <div className='hidden lg:block'>
       <div className="second-navbar h-10 my-3 text-white px-12 flex justify-between items-center">
         <div className='flex items-center'>
           <ul className="menu menu-horizontal p-0 btn btn-black rounded-none bg-black mr-8">
@@ -33,20 +34,26 @@ const NavbarMini = () => {
                 </svg>
               </a>
               <ul class="p-2 bg-black w-full">
-                <li>
-                  <a>Submenu 1</a>
+                <li style={{borderBottom: '1px dotted gray'}} className='py-3'>
+                  <a>Engine Parts</a>
                 </li>
-                <li>
-                  <a>Submenu 2</a>
+                <li style={{borderBottom: '1px dotted gray'}} className='py-3'>
+                  <a>Suspension Parts</a>
+                </li>
+                <li style={{borderBottom: '1px dotted gray'}} className='py-3'>
+                  <a>Body & Drive</a>
+                </li>
+                <li className='py-3'>
+                  <a>Wheels & Tires</a>
                 </li>
               </ul>
             </li>
           </ul>
-          <button className="btn btn-primary">+ 8 100 123 575</button>
+          <button className="btn btn-primary font-bold text-lg"><FiPhoneCall className='text-2xl mr-2' /> + 8 100 123 575</button>
         </div>
         <div class="btn-group">
           <input
-            className="border-2 px-3 w-96 focus:border-[1px] focus:border-primary focus:outline-none text-black"
+            className="border-2 px-3 w-80 focus:border-[1px] focus:border-primary focus:outline-none text-black"
             type="search"
             name="search"
             id="search"
@@ -55,7 +62,7 @@ const NavbarMini = () => {
           <button class="btn btn-primary rounded-none">Search</button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

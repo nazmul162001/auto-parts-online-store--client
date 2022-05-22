@@ -1,0 +1,11 @@
+.banner-bg{
+  transform: scale(1.5);
+}
+.banner-image img{
+  transform: scale(2.2);
+  margin-left: 280px;
+}
+.banner-title{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

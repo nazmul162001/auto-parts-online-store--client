@@ -9,7 +9,7 @@ const Navbar = ({ children }) => {
         <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content flex flex-col">
           {/* <!-- Navbar --> */}
-          <div class="w-full navbar bg-primary h-24 px-12 text-white sticky top-0">
+          <div class="w-full navbar bg-primary h-24 px-12 text-white sticky top-0 z-50">
             {/* flex flex-row-reverse md:flex-row */}
             <div class="flex-none lg:hidden">
               <label for="my-drawer-3" class="btn btn-square btn-ghost">
@@ -54,7 +54,7 @@ const Navbar = ({ children }) => {
         </div>
         <div class="drawer-side">
           <label for="my-drawer-3" class="drawer-overlay"></label>
-          <ul class="menu p-4 overflow-y-auto w-80 bg-accent">
+          <ul class="menu overflow-y-auto w-80 bg-primary">
             <div class="flex justify-end lg:hidden">
               <label for="my-drawer-3" class="btn btn-square btn-ghost">
                 <svg
@@ -73,17 +73,17 @@ const Navbar = ({ children }) => {
               <img className="w-12" src={logo} alt="/logo" />
               <h2 className="text-3xl text-white font-bold">Auto Parts</h2>
             </div>
-            <li>
-              <NavLink to='/' className='mx-auto'>Home</NavLink>
+            <li className='mt-5' style={{borderBottom: '1px dotted white'}}>
+              <NavLink to='/' className=''>Home</NavLink>
+            </li>
+            <li style={{borderBottom: '1px dotted white'}}>
+              <NavLink to='/' className=''>Dashboard</NavLink>
+            </li>
+            <li style={{borderBottom: '1px dotted white'}}>
+              <NavLink to='/' className=''>Blogs</NavLink>
             </li>
             <li>
-              <NavLink to='/' className='mx-auto'>Dashboard</NavLink>
-            </li>
-            <li>
-              <NavLink to='/' className='mx-auto'>Blogs</NavLink>
-            </li>
-            <li>
-              <NavLink to='/' className='mx-auto'>Login</NavLink>
+              <NavLink to='/' className=''>Login</NavLink>
             </li>
           </ul>
         </div>
