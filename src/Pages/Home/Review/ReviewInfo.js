@@ -47,7 +47,7 @@ const ReviewInfo = ({review}) => {
         className="mySwiper"
       >
         <SwiperSlide>
-          
+            {name}          
         </SwiperSlide>
       </Swiper>
     </section>

@@ -1,5 +1,14 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    extend: {
+      backgroundImage: {
+        'hero-pattern': "url('./src/assets/images/footerBg.jpg')",
+        // 'footer-texture': "url('/img/footer-texture.png')",
+      }
+    },
+  },
+  
   daisyui: {
     themes: [
       {
