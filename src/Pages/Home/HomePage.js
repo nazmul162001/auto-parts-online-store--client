@@ -3,6 +3,7 @@ import Banner from './Banner/Banner';
 import BusinessSummery from './BusinessSummery/BusinessSummery';
 import GetQuote from './GetQuote/GetQuote';
 import Parts from './Parts/Parts';
+import Review from './Review/Review';
 
 const HomePage = () => {
   return (
@@ -11,6 +12,7 @@ const HomePage = () => {
       <GetQuote />
       <Parts />
       <BusinessSummery />
+      <Review />
     </div>
   );
 };

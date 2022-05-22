@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { BsSuitHeart } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
+import './Part.css';
 
 const Part = ({ service }) => {
   const [color, setColor] = useState(false);
@@ -41,12 +43,29 @@ const Part = ({ service }) => {
               <BsCurrencyDollar className="" /> {price}
             </p>
             <div>
-              <p onClick={()=>{setColor(!color)}} className="text-right cursor-pointer">
-                <BsSuitHeart className={color ? 'text-gray-500 text-2xl' : 'text-primary text-2xl'} />{' '}
+              <p
+                onClick={() => {
+                  setColor(!color);
+                }}
+                className="text-right cursor-pointer"
+              >
+                <BsSuitHeart
+                  className={
+                    color ? 'text-gray-500 text-2xl' : 'text-primary text-2xl'
+                  }
+                />{' '}
               </p>
             </div>
           </div>
-          <button className='btn btn-outline'>Purchase</button>
+          {/* <button className="btn btn-outline">Purchase</button> */}
+          <div className="purchase-btn">
+            <Link to="/dashboard">
+              <button className="btn-style w-full bg-gray-500 mt-3">
+                <span></span>
+                Purchase
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
