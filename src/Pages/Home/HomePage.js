@@ -4,6 +4,7 @@ import BusinessSummery from './BusinessSummery/BusinessSummery';
 import GetQuote from './GetQuote/GetQuote';
 import Parts from './Parts/Parts';
 import Review from './Review/Review';
+import SpecialOffer from './SpecialOffer/SpecialOffer';
 
 const HomePage = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage = () => {
       <Parts />
       <BusinessSummery />
       <Review />
+      <SpecialOffer />
     </div>
   );
 };
