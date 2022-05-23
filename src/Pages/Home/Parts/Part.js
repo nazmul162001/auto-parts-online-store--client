@@ -14,10 +14,9 @@ const Part = ({ service }) => {
       <div className="card w-96 bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img
-            className="w-48 p-8"
+            className="w-48 p-8 rounded-xl"
             src={img}
             alt="suspension"
-            className="rounded-xl"
           />
         </figure>
         <div className="card-body text-justify">
