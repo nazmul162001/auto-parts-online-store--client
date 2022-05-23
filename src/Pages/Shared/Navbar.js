@@ -1,15 +1,44 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo-1.png';
+import auth from '../../firebase.init';
+import swal from 'sweetalert';
 
 const Navbar = ({ children }) => {
+  const [user, loading, error] = useAuthState(auth);
+
+
+
+  const handleSignOut = () => {
+    swal({
+      title: "Are you sure?",
+      text: "You Want to Log Out?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        swal("You are successfully Log Out 😎", {
+          icon: "success",
+        });
+        signOut(auth)
+      } else {
+        // swal("Your imaginary file is safe!");
+      }
+    });
+  }
+
+  
   return (
     <div>
       <div className="drawer">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* <!-- Navbar --> */}
-          <div className="w-full navbar bg-primary h-24 px-12 text-white sticky top-0 z-50">
+          <div className="w-full navbar bg-primary h-28 px-12 text-white sticky top-0 z-50">
             {/* flex flex-row-reverse md:flex-row */}
             <div className="flex-none lg:hidden">
               <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
@@ -20,7 +49,6 @@ const Navbar = ({ children }) => {
                   className="inline-block w-6 h-6 stroke-current"
                 >
                   <path
-                    strokeLinecap="round"
                     strokeLinecap="round"
                     strokeWidth="2"
                     d="M4 6h16M4 12h16M4 18h16"
@@ -47,7 +75,31 @@ const Navbar = ({ children }) => {
                   <NavLink to="/blogs">Blogs</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/login">Login</NavLink>
+                  {user ? (
+                    <div class="dropdown dropdown-end text-black">
+                      <label
+                        tabindex="0"
+                        class="btn btn-ghost btn-circle avatar"
+                      >
+                        <div class="w-10 rounded-full">
+                          <img src="https://api.lorem.space/image/face?hash=33791" />
+                        </div>
+                      </label>
+                      <ul
+                        tabindex="0"
+                        class="p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 mt-44"
+                      >
+                        <li>
+                          <a> {user.displayName} </a>
+                        </li>
+                        <li>
+                          <Link onClick={handleSignOut} to='/login'>Log Out</Link>
+                        </li>
+                      </ul>
+                    </div>
+                  ) : (
+                    <NavLink to="/login">Login</NavLink>
+                  )}
                 </li>
               </ul>
             </div>

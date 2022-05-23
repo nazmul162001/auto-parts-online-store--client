@@ -4,7 +4,7 @@ import { FiPhoneCall } from 'react-icons/fi';
 const NavbarMini = () => {
   return (
     <div className='hidden lg:block static z-10'>
-      <div className="second-navbar h-10 my-3 text-white px-12 flex justify-between items-center">
+      <div className="second-navbar h-10 my-5 text-white px-12 flex justify-between items-center">
         <div className='flex items-center'>
           <ul className="menu menu-horizontal p-0 btn btn-black rounded-none bg-black mr-8 text-white">
             <li tabIndex="0">
@@ -16,7 +16,6 @@ const NavbarMini = () => {
                   className="inline-block w-6 h-6 stroke-current"
                 >
                   <path
-                    strokeLinecap="round"
                     strokeLinecap="round"
                     strokeWidth="2"
                     d="M4 6h16M4 12h16M4 18h16"

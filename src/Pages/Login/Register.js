@@ -1,11 +1,11 @@
 import React from 'react';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
 import auth from '../../firebase.init';
 import { useForm } from 'react-hook-form';
 import Spinner from '../Shared/Spinner';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -22,9 +22,13 @@ const Register = () => {
     handleSubmit,
   } = useForm();
 
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  
+  const navigate = useNavigate();
+
   let errorMessage;
   
-  if(loading || gLoading){
+  if(loading || gLoading || updating){
     return <Spinner />
   }
 
@@ -36,9 +40,11 @@ const Register = () => {
     console.log( user || gUser);
   }
 
-  const onSubmit = (data) => {
-    console.log(data);
-    createUserWithEmailAndPassword(data.email, data.password)
+  const onSubmit = async(data) => {
+    await createUserWithEmailAndPassword(data.email, data.password)
+    await updateProfile({displayName: data.name});
+    console.log('testing Update user');
+    navigate('/')
   };
   
   
