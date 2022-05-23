@@ -48,7 +48,19 @@ const Purchase = () => {
       location: location
     }
 
-    console.log(order);
+    // post method for insert user order
+    // post-steps(3) 
+    fetch('http://localhost:5000/order', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(order)
+    })
+    .then(res=> res.json())
+    .then(data => {
+      console.log(data);
+    })
     
   }
 
