@@ -9,29 +9,25 @@ import swal from 'sweetalert';
 const Navbar = ({ children }) => {
   const [user, loading, error] = useAuthState(auth);
 
-
-
   const handleSignOut = () => {
     swal({
-      title: "Are you sure?",
-      text: "You Want to Log Out?",
-      icon: "warning",
+      title: 'Are you sure?',
+      text: 'You Want to Log Out?',
+      icon: 'warning',
       buttons: true,
       dangerMode: true,
-    })
-    .then((willDelete) => {
+    }).then((willDelete) => {
       if (willDelete) {
-        swal("You are successfully Log Out 😎", {
-          icon: "success",
+        swal('You are successfully Log Out 😎', {
+          icon: 'success',
         });
-        signOut(auth)
+        signOut(auth);
       } else {
         // swal("Your imaginary file is safe!");
       }
     });
-  }
+  };
 
-  
   return (
     <div>
       <div className="drawer">
@@ -65,9 +61,7 @@ const Navbar = ({ children }) => {
                 <li>
                   <NavLink to="/">Home</NavLink>
                 </li>
-                <li>
-                  {user && <NavLink to="/dashboard">Dashboard</NavLink>}
-                </li>
+                <li>{user && <NavLink to="/dashboard">Dashboard</NavLink>}</li>
                 <li>
                   <NavLink to="/portfolio">Portfolio</NavLink>
                 </li>
@@ -82,7 +76,14 @@ const Navbar = ({ children }) => {
                         class="btn btn-ghost btn-circle avatar"
                       >
                         <div class="w-10 rounded-full">
-                          <img src={user.photoURL ? user.photoURL : 'https://api.lorem.space/image/face?hash=33791'} alt='' />
+                          <img
+                            src={
+                              user.photoURL
+                                ? user.photoURL
+                                : 'https://api.lorem.space/image/face?hash=33791'
+                            }
+                            alt=""
+                          />
                         </div>
                       </label>
                       <ul
@@ -93,7 +94,9 @@ const Navbar = ({ children }) => {
                           <a> {user.displayName} </a>
                         </li>
                         <li>
-                          <Link onClick={handleSignOut} to='/login'>Log Out</Link>
+                          <Link onClick={handleSignOut} to="/login">
+                            Log Out
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -128,30 +131,48 @@ const Navbar = ({ children }) => {
               <img className="w-12" src={logo} alt="/logo" />
               <h2 className="text-3xl text-white font-bold">Auto Parts</h2>
             </div>
-            <li className="mt-5" style={{ borderBottom: '1px dotted white' }}>
-              <NavLink to="/" className="">
-                Home
-              </NavLink>
-            </li>
-            <li style={{ borderBottom: '1px dotted white' }}>
-              <NavLink to="/" className="">
-                Dashboard
-              </NavLink>
-            </li>
-            <li style={{ borderBottom: '1px dotted white' }}>
-              <NavLink to="/" className="">
-                Portfolio
-              </NavLink>
-            </li>
-            <li style={{ borderBottom: '1px dotted white' }}>
-              <NavLink to="/" className="">
-                Blogs
-              </NavLink>
-            </li>
             <li>
-              <NavLink to="/" className="">
-                Login
-              </NavLink>
+              {user ? (
+                <div class="dropdown dropdown-end text-black">
+                  <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                      <img
+                        src={
+                          user.photoURL
+                            ? user.photoURL
+                            : 'https://api.lorem.space/image/face?hash=33791'
+                        }
+                        alt=""
+                      />
+                    </div>
+                  </label>
+                  <ul
+                    tabindex="0"
+                    class="p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 mt-44"
+                  >
+                    <li>
+                      <a> {user.displayName} </a>
+                    </li>
+                    <li>
+                      <Link onClick={handleSignOut} to="/login">
+                        Log Out
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <NavLink to="/login">Login</NavLink>
+              )}
+            </li>
+            <li style={{ borderBottom: '1px dotted white' }}>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li style={{ borderBottom: '1px dotted white' }}>{user && <NavLink to="/dashboard">Dashboard</NavLink>}</li>
+            <li style={{ borderBottom: '1px dotted white' }}>
+              <NavLink to="/portfolio">Portfolio</NavLink>
+            </li>
+            <li style={{ borderBottom: '1px dotted white' }}>
+              <NavLink to="/blogs">Blogs</NavLink>
             </li>
           </ul>
         </div>
