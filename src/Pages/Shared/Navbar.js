@@ -34,7 +34,7 @@ const Navbar = ({ children }) => {
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* <!-- Navbar --> */}
-          <div className="w-full navbar bg-primary h-28 px-12 text-white sticky top-0 z-50">
+          <div className="w-full navbar bg-primary h-28 md:px-12 text-white sticky top-0 z-50 ">
             {/* flex flex-row-reverse md:flex-row */}
             <div className="flex-none lg:hidden">
               <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
@@ -52,9 +52,9 @@ const Navbar = ({ children }) => {
                 </svg>
               </label>
             </div>
-            <div className="flex-1">
-              <img className="w-12" src={logo} alt="/logo" />
-              <h2 className="text-3xl text-white font-bold">Auto Parts</h2>
+            <div className="flex justify-center items-center">
+              <img className="w-8 md:w-12" src={logo} alt="/logo" />
+              <h2 className="text-xl md:text-3xl text-white">Auto Parts</h2>
             </div>
             <div className="flex-none hidden lg:block">
               <ul className="menu menu-horizontal">
@@ -87,7 +87,7 @@ const Navbar = ({ children }) => {
                         </div>
                       </label>
                       <ul
-                        tabindex="0"
+                        tabIndex="0"
                         class="p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 mt-44"
                       >
                         <li>
@@ -106,7 +106,24 @@ const Navbar = ({ children }) => {
                 </li>
               </ul>
             </div>
-          </div>
+            <div className="navbar-end">
+              <label htmlFor="my-drawer-2" className="btn btn-square btn-ghost lg:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block w-6 h-6 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </label>
+            </div>
+          </div>{' '}
+          {/* navbar end */}
           {/* <!-- Page content here --> */}
           {children}
         </div>
@@ -167,7 +184,9 @@ const Navbar = ({ children }) => {
             <li style={{ borderBottom: '1px dotted white' }}>
               <NavLink to="/">Home</NavLink>
             </li>
-            <li style={{ borderBottom: '1px dotted white' }}>{user && <NavLink to="/dashboard">Dashboard</NavLink>}</li>
+            <li style={{ borderBottom: '1px dotted white' }}>
+              {user && <NavLink to="/dashboard">Dashboard</NavLink>}
+            </li>
             <li style={{ borderBottom: '1px dotted white' }}>
               <NavLink to="/portfolio">Portfolio</NavLink>
             </li>
