@@ -8,6 +8,7 @@ import 'tw-elements';
 import Register from './Pages/Login/Register';
 import RequireAuth from './Pages/Login/RequireAuth';
 import Portfolio from './Pages/Portfolio/Portfolio';
+import Purchase from './Pages/PurchaseProduct/Purchase';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Portfolio></Portfolio>
             </RequireAuth>
           }></Route>
+          <Route path='/purchase/:id' element={<Purchase />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
         </Routes>

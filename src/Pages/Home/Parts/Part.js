@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { BsSuitHeart } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './Part.css';
 
 const Part = ({ service }) => {
   const [color, setColor] = useState(false);
-  const { img, name, description, minimumOrder, availableQuantity, price } =
+  const { img, name, description, minimumOrder, availableQuantity, price, _id } =
     service;
+
+
   return (
     <div className="available-part border-2 rounded-md">
       <div className="card w-96 bg-base-100 shadow-xl">
@@ -58,7 +60,7 @@ const Part = ({ service }) => {
           </div>
           {/* <button className="btn btn-outline">Purchase</button> */}
           <div className="purchase-btn">
-            <Link to="/dashboard">
+            <Link to={`purchase/${_id}`}>
               <button className="btn-style w-full bg-gray-500 mt-3">
                 <span></span>
                 Purchase
