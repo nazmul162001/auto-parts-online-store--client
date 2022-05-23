@@ -7,6 +7,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query';
+import Footer from './Pages/Shared/Footer';
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <App />
+        {/* <Footer /> */}
       </BrowserRouter>
     </QueryClientProvider>
   </React.StrictMode>

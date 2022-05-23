@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Shared/Footer';
 import NavbarMini from '../Shared/NavbarMini';
 import Banner from './Banner/Banner';
 import BusinessSummery from './BusinessSummery/BusinessSummery';
@@ -19,6 +20,7 @@ const HomePage = () => {
       <Review />
       <SpecialOffer />
       <OurTeam />
+      <Footer />
     </div>
   );
 };
