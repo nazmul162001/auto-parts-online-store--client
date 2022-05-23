@@ -23,6 +23,35 @@ const Purchase = () => {
     .then((res) => res.json())
     .then((data) => setService(data));
 
+
+
+  // purchase
+  const handlePurchase = e => {
+    e.preventDefault();
+    const productId = e.target.productId.value;
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const phone = e.target.phone.value;
+    const address = e.target.address.value;
+    const quantity = e.target.quantity.value;
+    const location = e.target.location.value;
+
+    // console.log(name, email, phone, address, quantity, location, productId);
+
+    const order = {
+      productId: productId,
+      name: name,
+      email: email,
+      phone: phone,
+      address: address,
+      quantity: quantity,
+      location: location
+    }
+
+    console.log(order);
+    
+  }
+
   return (
     <section className="purchase w-full  mb-96">
       <h1 className="text-center text-gray-500 opacity-60 text-5xl mt-12 font-bold">
@@ -77,13 +106,26 @@ const Purchase = () => {
         <div className="purchase-form mt-5">
           <div class="hero min- bg-gray-500 py-28">
               <div class="card w-4/5 md:w-2/3 shadow-2xl bg-base-100">
-                <div class="card-body">
+                <form onSubmit={handlePurchase} class="card-body">
+                  <div class="form-control">
+                    <label class="label">
+                      <span class="label-text">Product ID</span>
+                    </label>
+                    <input
+                      type="text"
+                      name='productId'
+                      value={_id}
+                      class="input input-bordered"
+                      disabled
+                    />
+                  </div>
                   <div class="form-control">
                     <label class="label">
                       <span class="label-text">Name</span>
                     </label>
                     <input
                       type="text"
+                      name='name'
                       value={user.displayName}
                       class="input input-bordered"
                       disabled
@@ -95,9 +137,22 @@ const Purchase = () => {
                     </label>
                     <input
                       type="email"
+                      name='email'
                       value={user.email}
                       class="input input-bordered"
                       disabled
+                    />
+                  </div>
+                  <div class="form-control">
+                    <label class="label">
+                      <span class="label-text">Quantity:</span>
+                    </label>
+                    <input
+                      type="number"
+                      name='quantity'
+                      value={minimumOrder}
+                      placeholder='Enter Your Quantity'
+                      class="input input-bordered"
                     />
                   </div>
                   <div class="form-control">
@@ -106,6 +161,7 @@ const Purchase = () => {
                     </label>
                     <input
                       type="text"
+                      name='address'
                       placeholder='Enter Your Address'
                       class="input input-bordered"
                     />
@@ -115,7 +171,8 @@ const Purchase = () => {
                       <span class="label-text">Phone No:</span>
                     </label>
                     <input
-                      type="text"
+                      type="number"
+                      name='phone'
                       placeholder='Enter Your Phone Number'
                       class="input input-bordered"
                     />
@@ -126,14 +183,15 @@ const Purchase = () => {
                     </label>
                     <input
                       type="text"
+                      name='location'
                       placeholder='Enter Your Exact Location'
                       class="input input-bordered"
                     />
                   </div>
                   <div class="form-control mt-6">
-                    <button class="btn btn-primary">Purchase</button>
+                    <input className='btn btn-primary' type="submit" value="Purchase" />
                   </div>
-                </div>
+                </form>
               </div>
           </div>
         </div>
