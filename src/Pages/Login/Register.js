@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
 import auth from '../../firebase.init';
@@ -7,14 +7,14 @@ import { useForm } from 'react-hook-form';
 import Spinner from '../Shared/Spinner';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [
-    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
     user,
     loading,
     error,
-  ] = useSignInWithEmailAndPassword(auth);
+  ] = useCreateUserWithEmailAndPassword(auth);
 
   const {
     register,
@@ -38,9 +38,10 @@ const Login = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    signInWithEmailAndPassword(data.email, data.password)
+    createUserWithEmailAndPassword(data.email, data.password)
   };
-
+  
+  
   return (
     <section className="w-full h-screen my-28">
       <div className="px-6 h-[90vh] text-gray-800">
@@ -55,7 +56,7 @@ const Login = () => {
           <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="flex flex-row items-center justify-center lg:justify-start">
-                <p className="text-lg mb-0 mr-4">Sign in with</p>
+                <p className="text-lg mb-0 mr-4">Sign up with</p>
                 <span
                   onClick={() => signInWithGoogle()}
                   className="p-2 bg-neutral rounded-full cursor-pointer text-3xl mx-2"
@@ -71,6 +72,28 @@ const Login = () => {
                 <p className="text-center font-semibold mx-4 mb-0">Or</p>
               </div>
 
+              {/* <!-- Name input --> */}
+              <div className="mb-6">
+                <input
+                  type="text"
+                  className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  id="exampleFormControlInput0"
+                  placeholder="Your Name"
+                  {...register('name', {
+                    required: {
+                      value: true,
+                      message: 'Name is Required',
+                    }
+                  })}
+                />
+                <label className="label">
+                  {errors.name?.type === 'required' && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.name.message}
+                    </span>
+                  )}
+                </label>
+              </div>
               {/* <!-- Email input --> */}
               <div className="mb-6">
                 <input
@@ -149,24 +172,22 @@ const Login = () => {
                     Remember me
                   </label>
                 </div>
-                <a href="#!" className="text-gray-800">
-                  Forgot password?
-                </a>
               </div>
-                
-                {errorMessage}
+
+              {errorMessage}
               <div className="text-center lg:text-left mt-3">
                 <input
                   type="submit"
-                  value="Login"
+                  value="Register"
                   className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                 ></input>
                 <p className="text-sm font-semibold mt-2 pt-1 mb-0">
-                  Don't have an account?
-                  <Link to='/register'
+                  Already have an account?
+                  <Link
+                    to="/login"
                     className="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out ml-1"
                   >
-                    Register
+                    Login
                   </Link>
                 </p>
               </div>
@@ -178,4 +199,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

@@ -5,6 +5,7 @@ import Login from './Pages/Login/Login';
 import NavbarMini from './Pages/Shared/NavbarMini';
 import Footer from './Pages/Shared/Footer';
 import 'tw-elements';
+import Register from './Pages/Login/Register';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/register" element={<Register />}></Route>
         </Routes>
         <Footer />
       </Navbar>
