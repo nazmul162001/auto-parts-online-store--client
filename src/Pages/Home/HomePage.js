@@ -1,4 +1,5 @@
 import React from 'react';
+import NavbarMini from '../Shared/NavbarMini';
 import Banner from './Banner/Banner';
 import BusinessSummery from './BusinessSummery/BusinessSummery';
 import GetQuote from './GetQuote/GetQuote';
@@ -10,6 +11,7 @@ import SpecialOffer from './SpecialOffer/SpecialOffer';
 const HomePage = () => {
   return (
     <div>
+      <NavbarMini />
       <Banner />
       <GetQuote />
       <Parts />
