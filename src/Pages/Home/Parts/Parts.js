@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from 'react';
-// import suspension from '../../../assets/images/suspension.png';
-// import steering from '../../../assets/images/steering.png';
-// import wheels from '../../../assets/images/wheels.png';
+import { useQuery } from 'react-query';
+import Spinner from '../../Shared/Spinner';
 import Part from './Part';
 
 const Parts = () => {  
-  const [services, setServices] = useState([]);
+  // const [services, setServices] = useState([]);
 
-  useEffect(()=> {
-    const url = 'http://localhost:5000/service';
-    fetch(url)
-    .then(res=> res.json())
-    .then(data => setServices(data))
-  },[])
+  // useEffect(()=> {
+  //   const url = 'http://localhost:5000/service';
+  //   fetch(url)
+  //   .then(res=> res.json())
+  //   .then(data => setServices(data))
+  // },[])
+
+  // useQuery
+  const {data: services, isloading, refetch} = useQuery('item', ()=> fetch('http://localhost:5000/service')
+  .then(res=> res.json()) 
+  )
+  if(isloading){
+    return <Spinner />
+  }
 
   return (
     <div className="my-16 px-12">
@@ -28,7 +35,7 @@ const Parts = () => {
 
       {/* available parts  */}
       <div className="available-parts grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-        {services.map((service) => (
+        {services?.map((service) => (
           <Part key={service._id} service={service} />
         ))}
       </div>

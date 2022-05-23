@@ -66,7 +66,7 @@ const Navbar = ({ children }) => {
                   <NavLink to="/">Home</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/dashboard">Dashboard</NavLink>
+                  {user && <NavLink to="/dashboard">Dashboard</NavLink>}
                 </li>
                 <li>
                   <NavLink to="/portfolio">Portfolio</NavLink>
