@@ -1,42 +1,18 @@
-import React from 'react';
-import suspension from '../../../assets/images/suspension.png';
-import steering from '../../../assets/images/steering.png';
-import wheels from '../../../assets/images/wheels.png';
+import React, { useEffect, useState } from 'react';
+// import suspension from '../../../assets/images/suspension.png';
+// import steering from '../../../assets/images/steering.png';
+// import wheels from '../../../assets/images/wheels.png';
 import Part from './Part';
 
-const Parts = () => {
-  const services = [
-    {
-      _id: 1,
-      name: 'Suspension',
-      img: suspension,
-      description:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters',
-      minimumOrder: 200,
-      availableQuantity: 8000,
-      price: 149,
-    },
-    {
-      _id: 2,
-      name: 'Steering',
-      img: steering,
-      description:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters',
-      minimumOrder: 100,
-      availableQuantity: 6000,
-      price: 299,
-    },
-    {
-      _id: 3,
-      name: 'Wheels',
-      img: wheels,
-      description:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters',
-      minimumOrder: 150,
-      availableQuantity: 7000,
-      price: 350,
-    },
-  ];
+const Parts = () => {  
+  const [services, setServices] = useState([]);
+
+  useEffect(()=> {
+    const url = 'http://localhost:5000/service';
+    fetch(url)
+    .then(res=> res.json())
+    .then(data => setServices(data))
+  },[])
 
   return (
     <div className="my-16 px-12">
