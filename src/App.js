@@ -6,6 +6,8 @@ import NavbarMini from './Pages/Shared/NavbarMini';
 import Footer from './Pages/Shared/Footer';
 import 'tw-elements';
 import Register from './Pages/Login/Register';
+import RequireAuth from './Pages/Login/RequireAuth';
+import Portfolio from './Pages/Portfolio/Portfolio';
 
 function App() {
   return (
@@ -14,6 +16,11 @@ function App() {
         <NavbarMini />
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
+          <Route path='/portfolio' element={
+            <RequireAuth>
+              <Portfolio></Portfolio>
+            </RequireAuth>
+          }></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
         </Routes>
