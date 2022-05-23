@@ -1,11 +1,32 @@
 import React from 'react';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
 import auth from '../../firebase.init';
+import { useForm } from 'react-hook-form';
 
 const Login = () => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  if (user) {
+    console.log('user', user);
+  }
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   return (
     <section className="w-full h-screen">
@@ -19,10 +40,13 @@ const Login = () => {
             />
           </div>
           <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="flex flex-row items-center justify-center lg:justify-start">
                 <p className="text-lg mb-0 mr-4">Sign in with</p>
-                <span className="p-2 bg-neutral rounded-full cursor-pointer text-3xl mx-2">
+                <span
+                  onClick={() => signInWithGoogle()}
+                  className="p-2 bg-neutral rounded-full cursor-pointer text-3xl mx-2"
+                >
                   <FcGoogle />
                 </span>
                 <span className="p-2 bg-neutral rounded-full cursor-pointer text-3xl mx-2">
@@ -37,11 +61,33 @@ const Login = () => {
               {/* <!-- Email input --> */}
               <div className="mb-6">
                 <input
-                  type="text"
+                  type="email"
                   className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   id="exampleFormControlInput1"
                   placeholder="Email address"
+                  {...register('email', {
+                    required: {
+                      value: true,
+                      message: 'Email is Required',
+                    },
+                    pattern: {
+                      value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                      message: 'Provide a valid Email',
+                    },
+                  })}
                 />
+                <label className="label">
+                  {errors.email?.type === 'required' && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.email.message}
+                    </span>
+                  )}
+                  {errors.email?.type === 'pattern' && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.email.message}
+                    </span>
+                  )}
+                </label>
               </div>
 
               {/* <!-- Password input --> */}
@@ -51,7 +97,29 @@ const Login = () => {
                   className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   id="exampleFormControlInput2"
                   placeholder="Password"
+                  {...register('password', {
+                    required: {
+                      value: true,
+                      message: 'Password is Required',
+                    },
+                    minLength: {
+                      value: 6,
+                      message: 'Must be 6 characters or longer',
+                    },
+                  })}
                 />
+                <label className="label">
+                  {errors.password?.type === 'required' && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.password.message}
+                    </span>
+                  )}
+                  {errors.password?.type === 'minLength' && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.password.message}
+                    </span>
+                  )}
+                </label>
               </div>
 
               <div className="flex justify-between items-center mb-6">
@@ -74,12 +142,11 @@ const Login = () => {
               </div>
 
               <div className="text-center lg:text-left">
-                <button
-                  type="button"
+                <input
+                  type="submit"
+                  value="Login"
                   className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                >
-                  Login
-                </button>
+                ></input>
                 <p className="text-sm font-semibold mt-2 pt-1 mb-0">
                   Don't have an account?
                   <a
