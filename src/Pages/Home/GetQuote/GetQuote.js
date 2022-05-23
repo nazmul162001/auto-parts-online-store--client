@@ -8,42 +8,42 @@ const GetQuote = () => {
         <input
           type="text"
           placeholder="Type here"
-          class="input input-bordered w-full"
+          className="input input-bordered w-full"
         />
         <input
           type="text"
           placeholder="Type here"
-          class="input input-bordered w-full"
+          className="input input-bordered w-full"
         />
         <input
           type="text"
           placeholder="Type here"
-          class="input input-bordered w-full"
+          className="input input-bordered w-full"
         />
         <input
           type="text"
           placeholder="Type here"
-          class="input input-bordered w-full"
+          className="input input-bordered w-full"
         />
         <input
           type="text"
           placeholder="Type here"
-          class="input input-bordered w-full"
+          className="input input-bordered w-full"
         />
         <input
           type="text"
           placeholder="Type here"
-          class="input input-bordered w-full"
+          className="input input-bordered w-full"
         />
         <input
           type="text"
           placeholder="Type here"
-          class="input input-bordered w-full"
+          className="input input-bordered w-full"
         />
         <input
           type="text"
           placeholder="Type here"
-          class="input input-bordered w-full"
+          className="input input-bordered w-full"
         />
       </div>
       <button className="btn btn-primary mt-5">Get a Quote</button>

@@ -2,52 +2,52 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo-1.png';
 
-const Navbar = ({ children }) => {  
+const Navbar = ({ children }) => {
   return (
     <div>
-      <div class="drawer">
-        <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content flex flex-col">
+      <div className="drawer">
+        <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-content flex flex-col">
           {/* <!-- Navbar --> */}
-          <div class="w-full navbar bg-primary h-24 px-12 text-white sticky top-0 z-50">
+          <div className="w-full navbar bg-primary h-24 px-12 text-white sticky top-0 z-50">
             {/* flex flex-row-reverse md:flex-row */}
-            <div class="flex-none lg:hidden">
-              <label for="my-drawer-3" class="btn btn-square btn-ghost">
+            <div className="flex-none lg:hidden">
+              <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  class="inline-block w-6 h-6 stroke-current"
+                  className="inline-block w-6 h-6 stroke-current"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinecap="round"
+                    strokeWidth="2"
                     d="M4 6h16M4 12h16M4 18h16"
                   ></path>
                 </svg>
               </label>
             </div>
-            <div class="flex-1">
+            <div className="flex-1">
               <img className="w-12" src={logo} alt="/logo" />
               <h2 className="text-3xl text-white font-bold">Auto Parts</h2>
             </div>
-            <div class="flex-none hidden lg:block">
-              <ul class="menu menu-horizontal">
+            <div className="flex-none hidden lg:block">
+              <ul className="menu menu-horizontal">
                 <li>
-                  <NavLink to='/'>Home</NavLink>
+                  <NavLink to="/">Home</NavLink>
                 </li>
                 <li>
-                  <NavLink to='/dashboard'>Dashboard</NavLink>
+                  <NavLink to="/dashboard">Dashboard</NavLink>
                 </li>
                 <li>
-                  <NavLink to='/portfolio'>Portfolio</NavLink>
+                  <NavLink to="/portfolio">Portfolio</NavLink>
                 </li>
                 <li>
-                  <NavLink to='/blogs'>Blogs</NavLink>
+                  <NavLink to="/blogs">Blogs</NavLink>
                 </li>
                 <li>
-                  <NavLink to='/login'>Login</NavLink>
+                  <NavLink to="/login">Login</NavLink>
                 </li>
               </ul>
             </div>
@@ -55,13 +55,13 @@ const Navbar = ({ children }) => {
           {/* <!-- Page content here --> */}
           {children}
         </div>
-        <div class="drawer-side">
-          <label for="my-drawer-3" class="drawer-overlay"></label>
-          <ul class="menu overflow-y-auto w-80 bg-primary">
-            <div class="flex justify-end lg:hidden">
-              <label for="my-drawer-3" class="btn btn-square btn-ghost">
+        <div className="drawer-side">
+          <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
+          <ul className="menu overflow-y-auto w-80 bg-primary">
+            <div className="flex justify-end lg:hidden">
+              <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
                 <svg
-                  class="swap-on fill-current"
+                  className="swap-on fill-current"
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
                   height="32"
@@ -72,24 +72,34 @@ const Navbar = ({ children }) => {
               </label>
             </div>
             {/* <!-- Sidebar content here --> */}
-            <div class="flex justify-center">
+            <div className="flex justify-center">
               <img className="w-12" src={logo} alt="/logo" />
               <h2 className="text-3xl text-white font-bold">Auto Parts</h2>
             </div>
-            <li className='mt-5' style={{borderBottom: '1px dotted white'}}>
-              <NavLink to='/' className=''>Home</NavLink>
+            <li className="mt-5" style={{ borderBottom: '1px dotted white' }}>
+              <NavLink to="/" className="">
+                Home
+              </NavLink>
             </li>
-            <li style={{borderBottom: '1px dotted white'}}>
-              <NavLink to='/' className=''>Dashboard</NavLink>
+            <li style={{ borderBottom: '1px dotted white' }}>
+              <NavLink to="/" className="">
+                Dashboard
+              </NavLink>
             </li>
-            <li style={{borderBottom: '1px dotted white'}}>
-              <NavLink to='/' className=''>Portfolio</NavLink>
+            <li style={{ borderBottom: '1px dotted white' }}>
+              <NavLink to="/" className="">
+                Portfolio
+              </NavLink>
             </li>
-            <li style={{borderBottom: '1px dotted white'}}>
-              <NavLink to='/' className=''>Blogs</NavLink>
+            <li style={{ borderBottom: '1px dotted white' }}>
+              <NavLink to="/" className="">
+                Blogs
+              </NavLink>
             </li>
             <li>
-              <NavLink to='/' className=''>Login</NavLink>
+              <NavLink to="/" className="">
+                Login
+              </NavLink>
             </li>
           </ul>
         </div>

@@ -11,17 +11,17 @@ const Part = ({ service }) => {
     service;
   return (
     <div className="available-part border-2 rounded-md">
-      <div class="card w-96 bg-base-100 shadow-xl">
-        <figure class="px-10 pt-10">
+      <div className="card w-96 bg-base-100 shadow-xl">
+        <figure className="px-10 pt-10">
           <img
             className="w-48 p-8"
             src={img}
             alt="suspension"
-            class="rounded-xl"
+            className="rounded-xl"
           />
         </figure>
-        <div class="card-body text-justify">
-          <h2 class="card-title">{name} </h2>
+        <div className="card-body text-justify">
+          <h2 className="card-title">{name} </h2>
           <p>{description}</p>
           <div className="order-minimum flex justify-between items-center">
             <p className="flex items-center ">
