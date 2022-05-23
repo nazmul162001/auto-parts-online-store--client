@@ -4,6 +4,8 @@ import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
 import auth from '../../firebase.init';
 import { useForm } from 'react-hook-form';
+import Spinner from '../Shared/Spinner';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -20,12 +22,23 @@ const Login = () => {
     handleSubmit,
   } = useForm();
 
-  if (user) {
-    console.log('user', user);
+  let errorMessage;
+  
+  if(loading || gLoading){
+    return <Spinner />
+  }
+
+  if(error || gError){
+    errorMessage = <p className='text-red-500 italic text-xl'> <small> {error?.message || gError?.message}  </small> </p>
+  }
+  
+  if (user || gUser) {
+    console.log( user || gUser);
   }
 
   const onSubmit = (data) => {
     console.log(data);
+    signInWithEmailAndPassword(data.email, data.password)
   };
 
   return (
@@ -140,8 +153,9 @@ const Login = () => {
                   Forgot password?
                 </a>
               </div>
-
-              <div className="text-center lg:text-left">
+                
+                {errorMessage}
+              <div className="text-center lg:text-left mt-3">
                 <input
                   type="submit"
                   value="Login"
@@ -149,12 +163,11 @@ const Login = () => {
                 ></input>
                 <p className="text-sm font-semibold mt-2 pt-1 mb-0">
                   Don't have an account?
-                  <a
-                    href="#!"
-                    className="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
+                  <Link to='/register'
+                    className="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out ml-1"
                   >
                     Register
-                  </a>
+                  </Link>
                 </p>
               </div>
             </form>
