@@ -1,20 +1,21 @@
 import React from 'react';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+  useUpdateProfile,
+} from 'react-firebase-hooks/auth';
 import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
 import auth from '../../firebase.init';
 import { useForm } from 'react-hook-form';
 import Spinner from '../Shared/Spinner';
 import { Link, useNavigate } from 'react-router-dom';
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-  const [
-    createUserWithEmailAndPassword,
-    user,
-    loading,
-    error,
-  ] = useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
 
   const {
     register,
@@ -23,31 +24,36 @@ const Register = () => {
   } = useForm();
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-  
+
+  const [token] = useToken(user || gUser);
+
   const navigate = useNavigate();
 
   let errorMessage;
-  
-  if(loading || gLoading || updating){
-    return <Spinner />
+
+  if (loading || gLoading || updating) {
+    return <Spinner />;
   }
 
-  if(error || gError){
-    errorMessage = <p className='text-red-500 italic text-xl'> <small> {error?.message || gError?.message}  </small> </p>
-  }
-  
-  if (user || gUser) {
-    console.log( user || gUser);
+  if (error || gError) {
+    errorMessage = (
+      <p className="text-red-500 italic text-xl">
+        {' '}
+        <small> {error?.message || gError?.message} </small>{' '}
+      </p>
+    );
   }
 
-  const onSubmit = async(data) => {
-    await createUserWithEmailAndPassword(data.email, data.password)
-    await updateProfile({displayName: data.name});
+  if (token) {
+    navigate('/');
+  }
+
+  const onSubmit = async (data) => {
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
     console.log('testing Update user');
-    navigate('/')
   };
-  
-  
+
   return (
     <section className="w-full h-screen my-28">
       <div className="px-6 h-[90vh] text-gray-800">
@@ -89,7 +95,7 @@ const Register = () => {
                     required: {
                       value: true,
                       message: 'Name is Required',
-                    }
+                    },
                   })}
                 />
                 <label className="label">
