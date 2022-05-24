@@ -30,7 +30,7 @@ const MyOrders = () => {
           setOrders(data);
         });
     }
-  }, [user]);
+  }, [user, navigate]);
 
   return (
     <div>

@@ -81,7 +81,7 @@ const Navbar = ({ children }) => {
                             src={
                               user.photoURL
                                 ? user.photoURL
-                                : 'https://api.lorem.space/image/face?hash=33791'
+                                : 'https://i0.wp.com/9to5google.com/wp-content/uploads/sites/4/2017/05/google-contacts.png?resize=200%2C200&quality=82&strip=all&ssl=1'
                             }
                             alt=""
                           />

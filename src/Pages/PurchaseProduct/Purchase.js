@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Footer from '../Shared/Footer';
 
 const Purchase = () => {
   const [user] = useAuthState(auth);
@@ -64,7 +65,7 @@ const Purchase = () => {
   };
 
   return (
-    <section className="purchase w-full  mb-96">
+    <section className="purchase w-full">
       <h1 className="text-center text-gray-500 opacity-60 text-5xl mt-12 font-bold">
         WellCome To Purchase Page
       </h1>
@@ -223,6 +224,7 @@ const Purchase = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </section>
   );
 };
