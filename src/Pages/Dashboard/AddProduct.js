@@ -1,4 +1,5 @@
 import React from 'react';
+import swal from 'sweetalert';
 
 const AddProduct = () => {
   const handleAddProduct = (e) => {
@@ -29,7 +30,7 @@ const AddProduct = () => {
       .then((data) => {
         // console.log(data);
         e.target.reset();
-        alert('Item Successfully added');
+        swal('Congratulations!', 'Successfully Added Product!', 'success');
       });
   };
 

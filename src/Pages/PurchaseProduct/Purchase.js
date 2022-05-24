@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import swal from 'sweetalert';
 import auth from '../../firebase.init';
 import Footer from '../Shared/Footer';
 
@@ -60,7 +61,13 @@ const Purchase = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
+        e.target.reset();
+        swal(
+          'Congratulations!',
+          'Successfully Purchase this product!',
+          'success'
+        );
       });
   };
 
@@ -186,6 +193,7 @@ const Purchase = () => {
                   <input
                     type="text"
                     name="address"
+                    required
                     placeholder="Enter Your Address"
                     class="input input-bordered"
                   />
@@ -196,6 +204,7 @@ const Purchase = () => {
                   </label>
                   <input
                     type="number"
+                    required
                     name="phone"
                     placeholder="Enter Your Phone Number"
                     class="input input-bordered"
@@ -207,6 +216,7 @@ const Purchase = () => {
                   </label>
                   <input
                     type="text"
+                    required
                     name="location"
                     placeholder="Enter Your Exact Location"
                     class="input input-bordered"
