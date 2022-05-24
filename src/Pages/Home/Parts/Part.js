@@ -7,23 +7,25 @@ import './Part.css';
 
 const Part = ({ service }) => {
   const [color, setColor] = useState(false);
-  const { img, name, description, minimumOrder, availableQuantity, price, _id } =
-    service;
-
+  const {
+    img,
+    name,
+    description,
+    minimumOrder,
+    availableQuantity,
+    price,
+    _id,
+  } = service;
 
   return (
     <div className="available-part border-2 rounded-md">
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card w-96 h-[650px] bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
-          <img
-            className="w-48 p-8 rounded-xl"
-            src={img}
-            alt="suspension"
-          />
+          <img className="w-56 p-8 rounded-xl" src={img} alt="/" />
         </figure>
         <div className="card-body text-justify">
           <h2 className="card-title">{name} </h2>
-          <p>{description}</p>
+          <p>{description.slice(0, 150)}</p>
           <div className="order-minimum flex justify-between items-center">
             <p className="flex items-center ">
               <MdKeyboardArrowRight className="text-primary text-xl" /> Minimum
