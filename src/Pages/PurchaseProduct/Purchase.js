@@ -36,6 +36,7 @@ const Purchase = () => {
     const address = e.target.address.value;
     const quantity = e.target.quantity.value;
     const location = e.target.location.value;
+    const price = e.target.price.value;
 
     // console.log(name, email, phone, address, quantity, location, productId);
 
@@ -48,6 +49,7 @@ const Purchase = () => {
       quantity: quantity,
       location: location,
       productName: productName,
+      price: price,
     };
 
     // post method for insert user order
@@ -172,6 +174,18 @@ const Purchase = () => {
                     value={name}
                     class="input input-bordered"
                     disabled
+                  />
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Price:</span>
+                  </label>
+                  <input
+                    type="number"
+                    name="price"
+                    value={price}
+                    placeholder="Enter Your Quantity"
+                    class="input input-bordered"
                   />
                 </div>
                 <div class="form-control">
