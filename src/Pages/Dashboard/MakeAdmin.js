@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Spinner from '../Shared/Spinner';
+import UsersRow from './UsersRow';
 
 const MakeAdmin = () => {
   const {
@@ -42,28 +43,7 @@ const MakeAdmin = () => {
           </thead>
           <tbody>
             {users.map((user) => (
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" class="checkbox" />
-                  </label>
-                </th>
-                <td>
-                  <div class="flex items-center space-x-3">
-                    <div>
-                      <div class="font-bold"> {user.email} </div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <button className="btn btn-xs px-5 btn-success">
-                    Make Admin
-                  </button>{' '}
-                </td>
-                <th>
-                  <button class="btn btn-error btn-xs px-5">Remove</button>
-                </th>
-              </tr>
+              <UsersRow key={user._id} user={user} refetch={refetch} />
             ))}
           </tbody>
         </table>

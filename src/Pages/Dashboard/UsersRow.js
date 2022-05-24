@@ -1,40 +1,67 @@
-// import React from 'react';
+import React from 'react';
+import swal from 'sweetalert';
 
-// const UsersRow = ({ user }) => {
-//   const { email } = user;
+const UsersRow = ({ user, refetch }) => {
+  const { email, role } = user;
 
-//   return (
-//     <div>
-//       <tbody>
-//         <tr>
-//           <th>
-//             <label>
-//               <input type="checkbox" class="checkbox" />
-//             </label>
-//           </th>
-//           <td>
-//             <div class="flex items-center space-x-3">
-//               <div class="avatar">
-//                 <div class="mask mask-squircle w-12 h-12">
-//                   <img
-//                     src="https://api.lorem.space/image/face?hash=33791"
-//                     alt="Avatar"
-//                   />
-//                 </div>
-//               </div>
-//               <div>
-//                 <div class="font-bold">Hart Hagerty</div>
-//               </div>
-//             </div>
-//           </td>
-//           <td>{email}</td>
-//           <th>
-//             <button class="btn btn-ghost btn-xs">details</button>
-//           </th>
-//         </tr>
-//       </tbody>
-//     </div>
-//   );
-// };
+  // make admin handler
+  const makeAdmin = () => {
+    swal({
+      title: 'Are you sure?',
+      text: 'You Want to Make an Admin?',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal('Successfully Make an Admin', {
+          icon: 'success',
+        });
 
-// export default UsersRow;
+        fetch(`http://localhost:5000/user/admin/${email}`, {
+          method: 'PUT',
+          headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            refetch();
+          });
+      } else {
+        // swal("Your imaginary file is safe!");
+      }
+    });
+  };
+
+  return (
+    <tr>
+      <th>
+        <label>
+          <input type="checkbox" class="checkbox" />
+        </label>
+      </th>
+      <td>
+        <div class="flex items-center space-x-3">
+          <div>
+            <div class="font-bold"> {email} </div>
+          </div>
+        </div>
+      </td>
+      <td>
+        {role === 'admin' ? (
+          <button className="btn btn-xs bg-success px-9">Admin</button>
+        ) : (
+          <button onClick={makeAdmin} className="btn btn-xs px-5 btn-secondary">
+            Make Admin
+          </button>
+        )}
+      </td>
+      <th>
+        <button class="btn btn-error btn-xs px-5">Remove</button>
+      </th>
+    </tr>
+  );
+};
+
+export default UsersRow;
