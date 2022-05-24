@@ -23,13 +23,12 @@ const Purchase = () => {
     .then((res) => res.json())
     .then((data) => setService(data));
 
-
-
   // purchase
-  const handlePurchase = e => {
+  const handlePurchase = (e) => {
     e.preventDefault();
     const productId = e.target.productId.value;
     const name = e.target.name.value;
+    const productName = e.target.productName.value;
     const email = e.target.email.value;
     const phone = e.target.phone.value;
     const address = e.target.address.value;
@@ -45,24 +44,24 @@ const Purchase = () => {
       phone: phone,
       address: address,
       quantity: quantity,
-      location: location
-    }
+      location: location,
+      productName: productName,
+    };
 
     // post method for insert user order
-    // post-steps(3) 
+    // post-steps(3)
     fetch('http://localhost:5000/order', {
       method: 'POST',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
       },
-      body: JSON.stringify(order)
+      body: JSON.stringify(order),
     })
-    .then(res=> res.json())
-    .then(data => {
-      console.log(data);
-    })
-    
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
 
   return (
     <section className="purchase w-full  mb-96">
@@ -117,94 +116,110 @@ const Purchase = () => {
         </p>
         <div className="purchase-form mt-5">
           <div class="hero min- bg-gray-500 py-28">
-              <div class="card w-4/5 md:w-2/3 shadow-2xl bg-base-100">
-                <form onSubmit={handlePurchase} class="card-body">
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Product ID</span>
-                    </label>
-                    <input
-                      type="text"
-                      name='productId'
-                      value={_id}
-                      class="input input-bordered"
-                      disabled
-                    />
-                  </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Name</span>
-                    </label>
-                    <input
-                      type="text"
-                      name='name'
-                      value={user.displayName}
-                      class="input input-bordered"
-                      disabled
-                    />
-                  </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Email</span>
-                    </label>
-                    <input
-                      type="email"
-                      name='email'
-                      value={user.email}
-                      class="input input-bordered"
-                      disabled
-                    />
-                  </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Quantity:</span>
-                    </label>
-                    <input
-                      type="number"
-                      name='quantity'
-                      value={minimumOrder}
-                      placeholder='Enter Your Quantity'
-                      class="input input-bordered"
-                    />
-                  </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Address</span>
-                    </label>
-                    <input
-                      type="text"
-                      name='address'
-                      placeholder='Enter Your Address'
-                      class="input input-bordered"
-                    />
-                  </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Phone No:</span>
-                    </label>
-                    <input
-                      type="number"
-                      name='phone'
-                      placeholder='Enter Your Phone Number'
-                      class="input input-bordered"
-                    />
-                  </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Location</span>
-                    </label>
-                    <input
-                      type="text"
-                      name='location'
-                      placeholder='Enter Your Exact Location'
-                      class="input input-bordered"
-                    />
-                  </div>
-                  <div class="form-control mt-6">
-                    <input className='btn btn-primary' type="submit" value="Purchase" />
-                  </div>
-                </form>
-              </div>
+            <div class="card w-4/5 md:w-2/3 shadow-2xl bg-base-100">
+              <form onSubmit={handlePurchase} class="card-body">
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Product ID</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="productId"
+                    value={_id}
+                    class="input input-bordered"
+                    disabled
+                  />
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Name</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={user.displayName}
+                    class="input input-bordered"
+                    disabled
+                  />
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Email</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={user.email}
+                    class="input input-bordered"
+                    disabled
+                  />
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Product Name</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="productName"
+                    value={name}
+                    class="input input-bordered"
+                    disabled
+                  />
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Quantity:</span>
+                  </label>
+                  <input
+                    type="number"
+                    name="quantity"
+                    value={minimumOrder}
+                    placeholder="Enter Your Quantity"
+                    class="input input-bordered"
+                  />
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Address</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="address"
+                    placeholder="Enter Your Address"
+                    class="input input-bordered"
+                  />
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Phone No:</span>
+                  </label>
+                  <input
+                    type="number"
+                    name="phone"
+                    placeholder="Enter Your Phone Number"
+                    class="input input-bordered"
+                  />
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Location</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="location"
+                    placeholder="Enter Your Exact Location"
+                    class="input input-bordered"
+                  />
+                </div>
+                <div class="form-control mt-6">
+                  <input
+                    className="btn btn-primary"
+                    type="submit"
+                    value="Purchase"
+                  />
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
