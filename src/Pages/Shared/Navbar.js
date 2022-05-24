@@ -22,6 +22,7 @@ const Navbar = ({ children }) => {
           icon: 'success',
         });
         signOut(auth);
+        localStorage.removeItem('accessToken');
       } else {
         // swal("Your imaginary file is safe!");
       }
@@ -107,7 +108,10 @@ const Navbar = ({ children }) => {
               </ul>
             </div>
             <div className="navbar-end">
-              <label htmlFor="my-drawer-2" className="btn btn-square btn-ghost lg:hidden">
+              <label
+                htmlFor="my-drawer-2"
+                className="btn btn-square btn-ghost lg:hidden"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

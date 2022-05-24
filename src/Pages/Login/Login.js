@@ -1,24 +1,38 @@
-import React from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import React, { useEffect } from 'react';
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from 'react-firebase-hooks/auth';
 import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
 import auth from '../../firebase.init';
 import { useForm } from 'react-hook-form';
 import Spinner from '../Shared/Spinner';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-  const [
-    signInWithEmailAndPassword,
-    user,
-    loading,
-    error,
-  ] = useSignInWithEmailAndPassword(auth);
+
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
 
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || '/';
+
+  const [token] = useToken(user || gUser);
+
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate]);
+
+  // if (user || gUser) {
+  //   navigate(from, {replace: true});
+  //   console.log(gUser);
+  // }
 
   const {
     register,
@@ -27,23 +41,23 @@ const Login = () => {
   } = useForm();
 
   let errorMessage;
-  
-  if(loading || gLoading){
-    return <Spinner />
+
+  if (loading || gLoading) {
+    return <Spinner />;
   }
 
-  if(error || gError){
-    errorMessage = <p className='text-red-500 italic text-xl'> <small> {error?.message || gError?.message}  </small> </p>
-  }
-  
-  if (user || gUser) {
-    navigate(from, {replace: true});
-    console.log(gUser);
+  if (error || gError) {
+    errorMessage = (
+      <p className="text-red-500 italic text-xl">
+        {' '}
+        <small> {error?.message || gError?.message} </small>{' '}
+      </p>
+    );
   }
 
   const onSubmit = (data) => {
     console.log(data);
-    signInWithEmailAndPassword(data.email, data.password)
+    signInWithEmailAndPassword(data.email, data.password);
   };
 
   return (
@@ -158,8 +172,8 @@ const Login = () => {
                   Forgot password?
                 </a>
               </div>
-                
-                {errorMessage}
+
+              {errorMessage}
               <div className="text-center lg:text-left mt-3">
                 <input
                   type="submit"
@@ -168,7 +182,8 @@ const Login = () => {
                 ></input>
                 <p className="text-sm font-semibold mt-2 pt-1 mb-0">
                   Don't have an account?
-                  <Link to='/register'
+                  <Link
+                    to="/register"
                     className="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out ml-1"
                   >
                     Register
