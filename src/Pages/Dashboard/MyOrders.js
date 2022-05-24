@@ -51,7 +51,7 @@ const MyOrders = () => {
           </thead>
           <tbody>
             {orders.map((order, index) => (
-              <tr>
+              <tr key={index}>
                 <th> {index + 1} </th>
                 <td>{order.productName}</td>
                 <td>{order.quantity} </td>
@@ -67,7 +67,12 @@ const MyOrders = () => {
                     </Link>
                   )}
                   {order.price && order.paid && (
-                    <span className="text-success">paid</span>
+                    <div>
+                      <p className="text-success text-xl">paid</p>
+                      <p className="text-gray-500">
+                        <strong>Trx:</strong> {order.transactionId}
+                      </p>
+                    </div>
                   )}
                 </td>
                 <td>
