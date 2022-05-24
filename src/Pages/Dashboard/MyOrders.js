@@ -35,8 +35,8 @@ const MyOrders = () => {
   return (
     <div>
       <h2 className="text-3xl text-primary">My all orders {orders.length} </h2>
-      <div class="overflow-x-scroll">
-        <table class="table table-compact w-full">
+      <div className="overflow-x-scroll">
+        <table className="table table-compact w-full">
           <thead>
             <tr>
               <th></th>

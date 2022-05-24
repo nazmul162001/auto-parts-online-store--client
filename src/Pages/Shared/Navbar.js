@@ -71,12 +71,12 @@ const Navbar = ({ children }) => {
                 </li>
                 <li>
                   {user ? (
-                    <div class="dropdown dropdown-end text-black">
+                    <div className="dropdown dropdown-end text-black">
                       <label
-                        tabindex="0"
-                        class="btn btn-ghost btn-circle avatar"
+                        tabIndex="0"
+                        className="btn btn-ghost btn-circle avatar"
                       >
-                        <div class="w-10 rounded-full">
+                        <div className="w-10 rounded-full">
                           <img
                             src={
                               user.photoURL
@@ -89,7 +89,7 @@ const Navbar = ({ children }) => {
                       </label>
                       <ul
                         tabIndex="0"
-                        class="p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 mt-44"
+                        className="p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 mt-44"
                       >
                         <li>
                           <a> {user.displayName} </a>
@@ -154,9 +154,12 @@ const Navbar = ({ children }) => {
             </div>
             <li>
               {user ? (
-                <div class="dropdown dropdown-end text-black">
-                  <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                    <div class="w-10 rounded-full">
+                <div className="dropdown dropdown-end text-black">
+                  <label
+                    tabIndex="0"
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
                       <img
                         src={
                           user.photoURL
@@ -168,8 +171,8 @@ const Navbar = ({ children }) => {
                     </div>
                   </label>
                   <ul
-                    tabindex="0"
-                    class="p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 mt-44"
+                    tabIndex="0"
+                    className="p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 mt-44"
                   >
                     <li>
                       <a> {user.displayName} </a>

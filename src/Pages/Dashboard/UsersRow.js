@@ -38,13 +38,13 @@ const UsersRow = ({ user, refetch }) => {
     <tr>
       <th>
         <label>
-          <input type="checkbox" class="checkbox" />
+          <input type="checkbox" className="checkbox" />
         </label>
       </th>
       <td>
-        <div class="flex items-center space-x-3">
+        <div className="flex items-center space-x-3">
           <div>
-            <div class="font-bold"> {email} </div>
+            <div className="font-bold"> {email} </div>
           </div>
         </div>
       </td>
@@ -58,7 +58,7 @@ const UsersRow = ({ user, refetch }) => {
         )}
       </td>
       <th>
-        <button class="btn btn-error btn-xs px-5">Remove</button>
+        <button className="btn btn-error btn-xs px-5">Remove</button>
       </th>
     </tr>
   );

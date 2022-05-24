@@ -25,14 +25,14 @@ const MakeAdmin = () => {
     <div>
       <h2 className="text-3xl text-gray-500">All Users {users.length} </h2>
 
-      <div class="overflow-x-auto w-full">
-        <table class="table w-full">
+      <div className="overflow-x-auto w-full">
+        <table className="table w-full">
           {/* <!-- head --> */}
           <thead>
             <tr>
               <th>
                 <label>
-                  <input type="checkbox" class="checkbox" />
+                  <input type="checkbox" className="checkbox" />
                 </label>
               </th>
               <th>Email</th>

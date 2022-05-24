@@ -37,49 +37,49 @@ const AddProduct = () => {
   return (
     <div>
       <h2 className="text-2xl text-center my-3">Add New Product</h2>
-      <div class="card w-full  bg-base-100 px-12">
+      <div className="card w-full  bg-base-100 px-12">
         <form onSubmit={handleAddProduct}>
-          <div class="form-control my-2">
+          <div className="form-control my-2">
             <input
               type="text"
               name="productName"
               required
               placeholder="Enter Your Product Name"
-              class="input input-bordered"
+              className="input input-bordered"
             />
           </div>
-          <div class="form-control my-2">
+          <div className="form-control my-2">
             <input
               type="number"
               name="price"
               required
               placeholder="Enter Price"
-              class="input input-bordered"
+              className="input input-bordered"
             />
           </div>
-          <div class="form-control my-2">
+          <div className="form-control my-2">
             <input
               type="number"
               name="minimumOrder"
               required
               placeholder="Minimum Order Quantity"
-              class="input input-bordered"
+              className="input input-bordered"
             />
           </div>
-          <div class="form-control my-2">
+          <div className="form-control my-2">
             <input
               type="number"
               name="availableQuantity"
               required
               placeholder="Available Quantity"
-              class="input input-bordered"
+              className="input input-bordered"
             />
           </div>
-          <div class="form-control my-2">
+          <div className="form-control my-2">
             <textarea
               name="description"
               placeholder="Enter Product Description"
-              class="input input-bordered"
+              className="input input-bordered"
             />
           </div>
           <div className="form-control w-full ">
@@ -92,8 +92,8 @@ const AddProduct = () => {
             />
           </div>
 
-          <div class="form-control mt-6">
-            <button class="btn btn-primary">
+          <div className="form-control mt-6">
+            <button className="btn btn-primary">
               <input type="submit" value="Add Product" />
             </button>
           </div>

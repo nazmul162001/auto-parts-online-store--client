@@ -29,25 +29,25 @@ const Payment = () => {
 
   return (
     <div>
-      <div class="card w-50 max-w-md bg-base-100 shadow-xl my-12">
-        <div class="card-body">
+      <div className="card w-50 max-w-md bg-base-100 shadow-xl my-12">
+        <div className="card-body">
           <p className="text-gray-500 text-3xl my-3 font-bold">
             Hello,{' '}
-            <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
-              <span class="relative text-white"> {order.name} </span>
+            <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
+              <span className="relative text-white"> {order.name} </span>
             </span>
           </p>
-          <h2 class="card-title">Pay for: {order.productName} </h2>
+          <h2 className="card-title">Pay for: {order.productName} </h2>
           <p className="italic text-success text-xl font-bold">
             Your Order will be plached soon
           </p>
           <p>Please Pay: ${order.price}</p>
         </div>
       </div>
-      <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
-        <div class="card-body">
+      <div className="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
+        <div className="card-body">
           <Elements stripe={stripePromise}>
-            <CheckoutForm />
+            <CheckoutForm order={order} />
           </Elements>
         </div>
       </div>

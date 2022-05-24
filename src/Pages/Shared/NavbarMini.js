@@ -3,9 +3,9 @@ import { FiPhoneCall } from 'react-icons/fi';
 
 const NavbarMini = () => {
   return (
-    <div className='hidden lg:block static z-50'>
+    <div className="hidden lg:block static z-50">
       <div className="second-navbar h-10 my-5 text-white px-12 flex justify-between items-center">
-        <div className='flex items-center'>
+        <div className="flex items-center">
           <ul className="menu menu-horizontal w-80 p-0 btn btn-black rounded-none bg-black mr-8 text-white">
             <li tabIndex="0">
               <a>
@@ -33,22 +33,33 @@ const NavbarMini = () => {
                 </svg>
               </a>
               <ul className="p-2 bg-gray-500 w-full text-white static z-50">
-                <li style={{borderBottom: '1px dotted white'}} className='py-3'>
+                <li
+                  style={{ borderBottom: '1px dotted white' }}
+                  className="py-3"
+                >
                   <a>Engine Parts</a>
                 </li>
-                <li style={{borderBottom: '1px dotted white'}} className='py-3'>
+                <li
+                  style={{ borderBottom: '1px dotted white' }}
+                  className="py-3"
+                >
                   <a>Suspension Parts</a>
                 </li>
-                <li style={{borderBottom: '1px dotted white'}} className='py-3'>
+                <li
+                  style={{ borderBottom: '1px dotted white' }}
+                  className="py-3"
+                >
                   <a>Body & Drive</a>
                 </li>
-                <li className='py-3'>
+                <li className="py-3">
                   <a>Wheels & Tires</a>
                 </li>
               </ul>
             </li>
           </ul>
-          <button className="btn btn-primary font-bold text-lg"><FiPhoneCall className='text-2xl mr-2' /> + 8 100 123 575</button>
+          <button className="btn btn-primary font-bold text-lg">
+            <FiPhoneCall className="text-2xl mr-2" /> + 8 100 123 575
+          </button>
         </div>
         <div className="btn-group">
           <input

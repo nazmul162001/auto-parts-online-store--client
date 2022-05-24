@@ -81,11 +81,11 @@ const Purchase = () => {
       <h3 className="text-center text-gray-500 text-xl font-bold">
         Here is the Detail information Of the item
       </h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 justify-center my-28 shadow-2xl border-[1px] border-opacity-30 border-gray-500 mx-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 justify-center my-28 shadow-2xl border-[1px] border-opacity-30 border-gray-500 mx-12">
         <div className="product-image flex items-center justify-center">
           <img src={img} alt="Album" />
         </div>
-        <div class="card-body text-left">
+        <div className="card-body text-left">
           <h4 className="text-xl">
             {' '}
             <strong className="text-gray-500">Product ID:</strong> {_id}{' '}
@@ -125,118 +125,118 @@ const Purchase = () => {
           Fill Up the form below to confirm your order
         </p>
         <div className="purchase-form mt-5">
-          <div class="hero min- bg-gray-500 py-28">
-            <div class="card w-4/5 md:w-2/3 shadow-2xl bg-base-100">
-              <form onSubmit={handlePurchase} class="card-body">
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Product ID</span>
+          <div className="hero min- bg-gray-500 py-28">
+            <div className="card w-4/5 md:w-2/3 shadow-2xl bg-base-100">
+              <form onSubmit={handlePurchase} className="card-body">
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Product ID</span>
                   </label>
                   <input
                     type="text"
                     name="productId"
                     value={_id}
-                    class="input input-bordered"
+                    className="input input-bordered"
                     disabled
                   />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Name</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Name</span>
                   </label>
                   <input
                     type="text"
                     name="name"
                     value={user.displayName}
-                    class="input input-bordered"
+                    className="input input-bordered"
                     disabled
                   />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Email</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Email</span>
                   </label>
                   <input
                     type="email"
                     name="email"
                     value={user.email}
-                    class="input input-bordered"
+                    className="input input-bordered"
                     disabled
                   />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Product Name</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Product Name</span>
                   </label>
                   <input
                     type="text"
                     name="productName"
                     value={name}
-                    class="input input-bordered"
+                    className="input input-bordered"
                     disabled
                   />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Price:</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Price:</span>
                   </label>
                   <input
                     type="number"
                     name="price"
                     value={price}
                     placeholder="Enter Your Quantity"
-                    class="input input-bordered"
+                    className="input input-bordered"
                   />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Quantity:</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Quantity:</span>
                   </label>
                   <input
                     type="number"
                     name="quantity"
                     value={minimumOrder}
                     placeholder="Enter Your Quantity"
-                    class="input input-bordered"
+                    className="input input-bordered"
                   />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Address</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Address</span>
                   </label>
                   <input
                     type="text"
                     name="address"
                     required
                     placeholder="Enter Your Address"
-                    class="input input-bordered"
+                    className="input input-bordered"
                   />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Phone No:</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Phone No:</span>
                   </label>
                   <input
                     type="number"
                     required
                     name="phone"
                     placeholder="Enter Your Phone Number"
-                    class="input input-bordered"
+                    className="input input-bordered"
                   />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Location</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Location</span>
                   </label>
                   <input
                     type="text"
                     required
                     name="location"
                     placeholder="Enter Your Exact Location"
-                    class="input input-bordered"
+                    className="input input-bordered"
                   />
                 </div>
-                <div class="form-control mt-6">
+                <div className="form-control mt-6">
                   <input
                     className="btn btn-primary"
                     type="submit"
