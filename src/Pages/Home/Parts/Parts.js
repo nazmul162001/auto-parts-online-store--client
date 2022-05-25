@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import Spinner from '../../Shared/Spinner';
 import Part from './Part';
 
-const Parts = () => {  
+const Parts = () => {
   // const [services, setServices] = useState([]);
 
   // useEffect(()=> {
@@ -14,11 +14,20 @@ const Parts = () => {
   // },[])
 
   // useQuery
-  const {data: services, isloading, refetch} = useQuery('item', ()=> fetch('http://localhost:5000/service')
-  .then(res=> res.json()) 
-  )
-  if(isloading){
-    return <Spinner />
+  const {
+    data: services,
+    isloading,
+    refetch,
+  } = useQuery('item', () =>
+    fetch('http://localhost:5000/service', {
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      },
+    }).then((res) => res.json())
+  );
+  if (isloading) {
+    return <Spinner />;
   }
 
   return (
