@@ -24,7 +24,13 @@
       .card-shadow {
         box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
           rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-        padding: 10px;
+        overflow: hidden;
+      }
+      .card-shadow img {
+        transition: transform 0.3s ease-in-out;
+      }
+      .card-shadow:hover.card-shadow img {
+        transform: scale(1.2);
       }
     </style>
   </head>

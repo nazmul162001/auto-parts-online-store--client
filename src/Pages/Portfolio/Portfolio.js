@@ -26,6 +26,16 @@ const Portfolio = () => {
           <strong className="font-normal">webdevnazmulh@gmail.com</strong>
         </p>
         <p className="font-bold text-lg">
+          Github:
+          <a
+            className="ml-1 font-normal text-blue-700 underline"
+            href="https://foodie-store-6b0b2.web.app/"
+            target="_blank"
+          >
+            My Gihub Profile
+          </a>
+        </p>
+        <p className="font-bold text-lg">
           Education:{' '}
           <strong className="font-normal">
             Bachelor of Political Science - 2018 to Present
@@ -85,10 +95,43 @@ const Portfolio = () => {
                 Warehouse Management (Fruits)
                 <div class="badge badge-secondary">NEW</div>
               </h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <div class="badge badge-outline">Fashion</div>
-                <div class="badge badge-outline">Products</div>
+              <p>
+                This is warehouse management website. Users can create account &
+                Upload their product. Also He can make change delete product,
+                update product & change stock update quantity product anytime.
+              </p>
+              <div class="card-actions justify-center mt-5">
+                <div class="badge badge-outline border-red-500 cursor-pointer">
+                  <a href="https://foodie-store-6b0b2.web.app/" target="_blank">
+                    Live Link
+                  </a>
+                </div>
+                <div class="badge badge-outline border-red-500 cursor-pointer">
+                  <a
+                    href="https://github.com/nazmul162001/warehouse-management-client"
+                    target="_blank"
+                  >
+                    Client-side Code
+                  </a>
+                </div>
+                <div class="badge badge-outline border-red-500 cursor-pointer">
+                  <a
+                    href="https://github.com/nazmul162001/warehouse-management-server"
+                    target="_blank"
+                  >
+                    Server-side Code
+                  </a>
+                </div>
+              </div>
+              <div className="usage-technologies mt-3">
+                <h2>Usage Technologies:</h2>
+                <span className="badge badge-outline m-1">React</span>
+                <span className="badge badge-outline m-1">React-router</span>
+                <span className="badge badge-outline m-1">Tailwindcss</span>
+                <span className="badge badge-outline m-1">Firebase</span>
+                <span className="badge badge-outline m-1">JWT</span>
+                <span className="badge badge-outline m-1">MongoDB</span>
+                <span className="badge badge-outline m-1">NodeJs</span>
               </div>
             </div>
           </div>
@@ -101,10 +144,35 @@ const Portfolio = () => {
                 Fitness Corner (Gym)
                 <div class="badge badge-secondary">NEW</div>
               </h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <div class="badge badge-outline">Fashion</div>
-                <div class="badge badge-outline">Products</div>
+              <p>
+                It is Health & fitness related website. Users can booking for
+                enrollment & see our daily activity & blogs
+              </p>
+              <div class="card-actions justify-center mt-5">
+                <div class="badge badge-outline border-red-500 cursor-pointer">
+                  <a
+                    href="https://fitness-corner-93736.web.app/"
+                    target="_blank"
+                  >
+                    Live Link
+                  </a>
+                </div>
+                <div class="badge badge-outline border-red-500 cursor-pointer">
+                  <a
+                    href="https://github.com/nazmul162001/fitness-corner-website--react"
+                    target="_blank"
+                  >
+                    Code
+                  </a>
+                </div>
+              </div>
+              <div className="usage-technologies mt-3">
+                <h2>Usage Technologies:</h2>
+                <span className="badge badge-outline m-1">React</span>
+                <span className="badge badge-outline m-1">React-router</span>
+                <span className="badge badge-outline m-1">Tailwindcss</span>
+                <span className="badge badge-outline m-1">Firebase</span>
+                <span className="badge badge-outline m-1">JWT</span>
               </div>
             </div>
           </div>
@@ -117,10 +185,32 @@ const Portfolio = () => {
                 Product Analysis (Headphone)
                 <div class="badge badge-secondary">NEW</div>
               </h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <div class="badge badge-outline">Fashion</div>
-                <div class="badge badge-outline">Products</div>
+              <p>
+                If a simple product review website.Here is the review of
+                headphones.{' '}
+              </p>
+              <div class="card-actions justify-center mt-5">
+                <div class="badge badge-outline border-red-500 cursor-pointer">
+                  <a href="https://review-gallery.netlify.app/" target="_blank">
+                    Live Link
+                  </a>
+                </div>
+                <div class="badge badge-outline border-red-500 cursor-pointer">
+                  <a
+                    href="https://github.com/nazmul162001/product-analysis-react-router-firebase"
+                    target="_blank"
+                  >
+                    Code
+                  </a>
+                </div>
+              </div>
+              <div className="usage-technologies mt-3">
+                <h2>Usage Technologies:</h2>
+                <span className="badge badge-outline m-1">React</span>
+                <span className="badge badge-outline m-1">React-router</span>
+                <span className="badge badge-outline m-1">Tailwindcss</span>
+                <span className="badge badge-outline m-1">JWT</span>
+                <span className="badge badge-outline m-1">Firebase</span>
               </div>
             </div>
           </div>
@@ -133,10 +223,41 @@ const Portfolio = () => {
                 Todo App
                 <div class="badge badge-secondary">NEW</div>
               </h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <div class="badge badge-outline">Fashion</div>
-                <div class="badge badge-outline">Products</div>
+              <p>
+                This is a Simple todo app. Users can add their daily todos. Also
+                added delete todos and mark as completed todos options{' '}
+              </p>
+              <div class="card-actions justify-center mt-5">
+                <div class="badge badge-outline border-red-500 cursor-pointer">
+                  <a href="https://todos-app-30758.web.app/" target="_blank">
+                    Live Link
+                  </a>
+                </div>
+                <div class="badge badge-outline border-red-500 cursor-pointer">
+                  <a
+                    href="https://github.com/nazmul162001/todos-app-client"
+                    target="_blank"
+                  >
+                    Client-side Code
+                  </a>
+                </div>
+                <div class="badge badge-outline border-red-500 cursor-pointer">
+                  <a
+                    href="https://github.com/nazmul162001/todos-app-server"
+                    target="_blank"
+                  >
+                    Server-side Code
+                  </a>
+                </div>
+              </div>
+              <div className="usage-technologies mt-3">
+                <h2>Usage Technologies:</h2>
+                <span className="badge badge-outline m-1">React</span>
+                <span className="badge badge-outline m-1">React-router</span>
+                <span className="badge badge-outline m-1">Tailwindcss</span>
+                <span className="badge badge-outline m-1">Firebase</span>
+                <span className="badge badge-outline m-1">Mongoose</span>
+                <span className="badge badge-outline m-1">NodeJs</span>
               </div>
             </div>
           </div>
