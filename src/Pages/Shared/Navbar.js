@@ -57,7 +57,11 @@ const Navbar = ({ children }) => {
               <img className="w-8 md:w-12" src={logo} alt="/logo" />
               <h2 className="text-xl md:text-3xl text-white">Auto Parts</h2>
             </div>
-            <div className="flex-none hidden lg:block">
+            {/* <div className="flex justify-center items-center">
+              <img className="w-8 md:w-12" src={logo} alt="/logo" />
+              <h2 className="text-xl md:text-3xl text-white">Auto Parts</h2>
+            </div> */}
+            <div className="flex-none hidden mx-auto lg:block">
               <ul className="menu menu-horizontal">
                 <li>
                   <NavLink to="/">Home</NavLink>

@@ -34,11 +34,11 @@ const AddReview = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full h-screen px-5 md:px-0">
       <h2 className="text-3xl text-gray-500 font-bold text-center my-5">
         Give Us Your Valuable Review
       </h2>
-      <div class=" w-1/2 mx-auto bg-base-100 shadow-2xl flex rounded-md border-4">
+      <div class=" w-full px-4 md:px-0 md:w-1/2 md:mx-auto bg-base-100 shadow-2xl flex rounded-md border-4">
         <form onSubmit={handleRating} class="card-body">
           <h2 class="card-title">Select Your Review</h2>
           <div className="review">
