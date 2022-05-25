@@ -24,7 +24,6 @@ const Purchase = () => {
   let quantity = minimumOrder;
 
   const { id } = useParams();
-
   // console.log(quantity);
 
   // console.log(quantity);
@@ -234,7 +233,7 @@ const Purchase = () => {
                     placeholder="Enter Your Quantity"
                     className="input input-bordered"
                   />
-                  <label className="text-error text-sm italic" htmlFor="err">
+                  <label className="text-warning  text-xl " htmlFor="err">
                     {err}
                   </label>
                 </div>

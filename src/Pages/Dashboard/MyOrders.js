@@ -1,13 +1,32 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
+
+  // id ta passe na
+  const { id } = useParams();
+  // console.log(id);
+
+  // delete order
+  const handleDelete = () => {
+    // const url = `http://localhost:5000/order/${id}`;
+    // fetch(url, {
+    //   method: 'DELETE',
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.deletedCound > 0) {
+    //       const remaining = orders.filter((order) => order._id !== id);
+    //       setOrders(remaining);
+    //     }
+    //   });
+  };
 
   useEffect(() => {
     if (user) {
@@ -75,7 +94,7 @@ const MyOrders = () => {
                     </div>
                   )}
                 </td>
-                <td>
+                <td onClick={handleDelete}>
                   {order.paid ? (
                     <button disabled className="btn btn-xs btn-error">
                       Delete

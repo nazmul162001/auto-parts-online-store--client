@@ -18,6 +18,7 @@ import MakeAdmin from './Pages/Dashboard/MakeAdmin';
 import ManageProduct from './Pages/Dashboard/ManageProduct';
 import RequireAdmin from './Pages/Login/RequireAdmin';
 import Payment from './Pages/Dashboard/Payment';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -61,6 +62,7 @@ function App() {
 
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </Navbar>
     </div>
