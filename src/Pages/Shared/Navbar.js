@@ -2,7 +2,7 @@ import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../../assets/images/logo-1.png';
+import logo from '../../assets/images/logo2.png';
 import auth from '../../firebase.init';
 import swal from 'sweetalert';
 
@@ -53,9 +53,9 @@ const Navbar = ({ children }) => {
                 </svg>
               </label>
             </div>
-            <div className="flex justify-center items-center">
+            <div className="">
               <img className="w-8 md:w-12" src={logo} alt="/logo" />
-              <h2 className="text-xl md:text-3xl text-white">Auto Parts</h2>
+              {/* <h2 className="text-xl md:text-3xl text-white">Auto Parts</h2> */}
             </div>
             {/* <div className="flex justify-center items-center">
               <img className="w-8 md:w-12" src={logo} alt="/logo" />

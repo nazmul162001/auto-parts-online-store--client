@@ -4,8 +4,11 @@ import { useParams } from 'react-router-dom';
 import swal from 'sweetalert';
 import auth from '../../firebase.init';
 import Footer from '../Shared/Footer';
+import formBg from '../../assets/images/formBg.jpg';
 
 const Purchase = () => {
+  const [err, setErr] = useState('');
+
   const [user] = useAuthState(auth);
   const [service, setService] = useState({});
   const {
@@ -18,7 +21,13 @@ const Purchase = () => {
     availableQuantity,
   } = service;
 
+  let quantity = minimumOrder;
+
   const { id } = useParams();
+
+  // console.log(quantity);
+
+  // console.log(quantity);
 
   const url = `http://localhost:5000/service/${id}`;
   fetch(url)
@@ -125,12 +134,21 @@ const Purchase = () => {
           Fill Up the form below to confirm your order
         </p>
         <div className="purchase-form mt-5">
-          <div className="hero min- bg-gray-500 py-28">
-            <div className="card w-4/5 md:w-2/3 shadow-2xl bg-base-100">
+          <div
+            style={{
+              background: `url(${formBg})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundAttachment: 'fixed',
+              backgroundRepeat: 'no-repeat',
+            }}
+            className="hero py-28"
+          >
+            <div className="card w-4/5 md:w-2/3 shadow-2xl glass">
               <form onSubmit={handlePurchase} className="card-body">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Product ID</span>
+                    <span className="text-white label-text">Product ID</span>
                   </label>
                   <input
                     type="text"
@@ -142,7 +160,7 @@ const Purchase = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Name</span>
+                    <span className="text-white label-text">Name</span>
                   </label>
                   <input
                     type="text"
@@ -154,7 +172,7 @@ const Purchase = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Email</span>
+                    <span className="text-white label-text">Email</span>
                   </label>
                   <input
                     type="email"
@@ -166,7 +184,7 @@ const Purchase = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Product Name</span>
+                    <span className="text-white label-text">Product Name</span>
                   </label>
                   <input
                     type="text"
@@ -178,31 +196,51 @@ const Purchase = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Price:</span>
+                    <span className="text-white label-text">Price:</span>
                   </label>
                   <input
                     type="number"
                     name="price"
                     value={price}
+                    disabled
                     placeholder="Enter Your Quantity"
                     className="input input-bordered"
                   />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Quantity:</span>
+                    <span className="text-white label-text">
+                      Minimum Order Quantity:
+                    </span>
                   </label>
                   <input
+                    onChange={(e) => {
+                      quantity = e.target.value;
+                      if (quantity > availableQuantity) {
+                        setErr(
+                          'Quantity can not bigger than available quantity'
+                        );
+                      } else if (quantity < minimumOrder) {
+                        setErr(
+                          'Quantity can not smaller thant minimum order quantity'
+                        );
+                      } else {
+                        setErr('');
+                      }
+                    }}
                     type="number"
                     name="quantity"
-                    value={minimumOrder}
+                    defaultValue={quantity}
                     placeholder="Enter Your Quantity"
                     className="input input-bordered"
                   />
+                  <label className="text-error text-sm italic" htmlFor="err">
+                    {err}
+                  </label>
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Address</span>
+                    <span className="text-white label-text">Address</span>
                   </label>
                   <input
                     type="text"
@@ -214,7 +252,7 @@ const Purchase = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Phone No:</span>
+                    <span className="text-white label-text">Phone No:</span>
                   </label>
                   <input
                     type="number"
@@ -226,7 +264,7 @@ const Purchase = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Location</span>
+                    <span className="text-white label-text">Location</span>
                   </label>
                   <input
                     type="text"
@@ -238,6 +276,7 @@ const Purchase = () => {
                 </div>
                 <div className="form-control mt-6">
                   <input
+                    disabled={err ? true : false}
                     className="btn btn-primary"
                     type="submit"
                     value="Purchase"

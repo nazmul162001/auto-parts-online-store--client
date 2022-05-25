@@ -4,11 +4,12 @@ module.exports = {
     extend: {
       backgroundImage: {
         'hero-pattern': "url('./src/assets/images/footerBg.jpg')",
+        'hero-bg': "url('./src/assets/images/formBg.jpg')",
         // 'footer-texture': "url('/img/footer-texture.png')",
-      }
+      },
     },
   },
-  
+
   daisyui: {
     themes: [
       {
