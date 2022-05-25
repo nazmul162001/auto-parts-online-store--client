@@ -76,7 +76,13 @@ const MyOrders = () => {
                   )}
                 </td>
                 <td>
-                  <button className="btn btn-xs btn-error">Delete</button>
+                  {order.paid ? (
+                    <button disabled className="btn btn-xs btn-error">
+                      Delete
+                    </button>
+                  ) : (
+                    <button className="btn btn-xs btn-error">Delete</button>
+                  )}
                 </td>
               </tr>
             ))}

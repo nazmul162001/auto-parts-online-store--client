@@ -22,9 +22,12 @@ const Dashboard = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 overflow-y-auto w-48 bg-base-200 text-base-content">
             {/* <!-- Sidebar content here --> */}
+            <li className="mb-2">
+              <Link to="/dashboard">My Profile</Link>
+            </li>
             {!admin && (
               <li className="mb-2">
-                <Link to="/dashboard">My Orders</Link>
+                <NavLink to="/dashboard/orders">My Orders</NavLink>
               </li>
             )}
             {!admin && (
@@ -52,9 +55,6 @@ const Dashboard = () => {
                 <NavLink to="/dashboard/makeAdmin">Make Admin</NavLink>
               </li>
             )}
-            <li className="mb-2">
-              <NavLink to="/dashboard/profile">My Profile</NavLink>
-            </li>
           </ul>
         </div>
       </div>
