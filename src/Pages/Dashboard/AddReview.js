@@ -82,7 +82,7 @@ const AddReview = () => {
             name="name"
             placeholder="Your name"
             required
-            class="input input-bordered input-primary w-full max-w-xs"
+            class="input input-bordered input-success w-full"
           />
 
           <label htmlFor="img">Photo URL (optional)</label>
@@ -90,11 +90,11 @@ const AddReview = () => {
             type="text"
             name="img"
             placeholder="Your Photo URL"
-            class="input input-bordered input-primary w-full max-w-xs"
+            class="input input-bordered input-success w-full"
           />
 
           <textarea
-            class="textarea textarea-primary"
+            class="textarea textarea-success"
             name="description"
             required
             placeholder="Add Your Review Description"

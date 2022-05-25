@@ -54,7 +54,7 @@ const Navbar = ({ children }) => {
               </label>
             </div>
             <div className="">
-              <img className="w-8 md:w-12" src={logo} alt="/logo" />
+              <img className="w-38" src={logo} alt="/logo" />
               {/* <h2 className="text-xl md:text-3xl text-white">Auto Parts</h2> */}
             </div>
             {/* <div className="flex justify-center items-center">
@@ -152,9 +152,8 @@ const Navbar = ({ children }) => {
               </label>
             </div>
             {/* <!-- Sidebar content here --> */}
-            <div className="flex justify-center">
-              <img className="w-12" src={logo} alt="/logo" />
-              <h2 className="text-3xl text-white font-bold">Auto Parts</h2>
+            <div className="">
+              <img className="w-38" src={logo} alt="/logo" />
             </div>
             <li>
               {user ? (
