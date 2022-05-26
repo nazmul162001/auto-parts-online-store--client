@@ -18,7 +18,7 @@ const ManageProductInfo = ({ service }) => {
   } = service;
 
   // const handleDelete = () => {
-  //   const url = `https://boiling-ridge-27693.herokuapp.com/service/${_id}`;
+  //   const url = `http://localhost:5000/service/${_id}`;
   //   fetch(url, {
   //     method: 'DELETE',
   //   })
@@ -43,7 +43,7 @@ const ManageProductInfo = ({ service }) => {
         swal('Your Product has been deleted!', {
           icon: 'success',
         });
-        const url = `https://boiling-ridge-27693.herokuapp.com/service/${id}`;
+        const url = `http://localhost:5000/service/${id}`;
         fetch(url, {
           method: 'DELETE',
         }).then((res) => res.json());

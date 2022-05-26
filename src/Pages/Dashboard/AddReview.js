@@ -24,7 +24,7 @@ const AddReview = () => {
 
     // post method for insert user review
 
-    fetch('https://boiling-ridge-27693.herokuapp.com/review', {
+    fetch('http://localhost:5000/review', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

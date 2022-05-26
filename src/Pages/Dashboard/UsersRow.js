@@ -6,6 +6,17 @@ const UsersRow = ({ user, refetch }) => {
 
   // make admin handler
   const makeAdmin = () => {
+    fetch(`http://localhost:5000/user/admin/${email}`, {
+      method: 'PUT',
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        refetch();
+      });
+
     swal({
       title: 'Are you sure?',
       text: 'You Want to Make an Admin?',
@@ -18,7 +29,7 @@ const UsersRow = ({ user, refetch }) => {
           icon: 'success',
         });
 
-        fetch(`https://boiling-ridge-27693.herokuapp.com/user/admin/${email}`, {
+        fetch(`http://localhost:5000/user/admin/${email}`, {
           method: 'PUT',
           headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -46,7 +57,7 @@ const UsersRow = ({ user, refetch }) => {
         swal('user has been deleted!', {
           icon: 'success',
         });
-        const url = `https://boiling-ridge-27693.herokuapp.com/admin/${id}`;
+        const url = `http://localhost:5000/admin/${id}`;
         fetch(url, {
           method: 'DELETE',
         })

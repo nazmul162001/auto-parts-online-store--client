@@ -11,7 +11,7 @@ const MyProfile = () => {
 
   const navigate = useNavigate();
   // const { data: userInfo, isLoading } = useQuery('getUser', () =>
-  //   fetch(`https://boiling-ridge-27693.herokuapp.com/user/${user.email}`).then(
+  //   fetch(`http://localhost:5000/user/${user.email}`).then(
   //     (res) => res.json()
   //   )
   // );

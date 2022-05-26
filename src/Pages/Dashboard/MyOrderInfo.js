@@ -16,7 +16,7 @@ const MyOrderInfo = ({ order, index }) => {
         swal('Your order has been deleted!', {
           icon: 'success',
         });
-        const url = `https://boiling-ridge-27693.herokuapp.com/order/${id}`;
+        const url = `http://localhost:5000/order/${id}`;
         fetch(url, {
           method: 'DELETE',
         }).then((res) => res.json());

@@ -5,7 +5,7 @@ const ManageProduct = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    const url = 'https://boiling-ridge-27693.herokuapp.com/service';
+    const url = 'http://localhost:5000/service';
     fetch(url)
       .then((res) => res.json())
       .then((data) => setServices(data));

@@ -7,7 +7,7 @@ const Parts = () => {
   // const [services, setServices] = useState([]);
 
   // useEffect(()=> {
-  //   const url = 'https://boiling-ridge-27693.herokuapp.com/service';
+  //   const url = 'http://localhost:5000/service';
   //   fetch(url)
   //   .then(res=> res.json())
   //   .then(data => setServices(data))
@@ -19,14 +19,11 @@ const Parts = () => {
     isloading,
     refetch,
   } = useQuery('item', () =>
-    fetch('https://boiling-ridge-27693.herokuapp.com/service').then((res) =>
-      res.json()
-    )
+    fetch('http://localhost:5000/service').then((res) => res.json())
   );
   if (isloading) {
     return <Spinner />;
   }
-
 
   return (
     <div className="my-16 px-12">
