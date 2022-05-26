@@ -1,7 +1,137 @@
 import React from 'react';
+import { AiFillStar } from 'react-icons/ai';
 
 const ReviewInfo = ({ review }) => {
-  const { name, description, ratings, img } = review;
+  const { name, description, rating, img } = review;
+
+  const GetRating = (rating) => {
+    if (rating <= 1) {
+      return (
+        <div className="flex items-center">
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-secondary" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-slate-300" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-slate-300" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-slate-300" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-slate-300" />{' '}
+          </span>
+        </div>
+      );
+    } else if (rating <= 2) {
+      return (
+        <div className="flex items-center">
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-secondary" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-secondary" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-slate-300" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-slate-300" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-slate-300" />{' '}
+          </span>
+        </div>
+      );
+    } else if (rating <= 3) {
+      return (
+        <div className="flex items-center">
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-secondary" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-secondary" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-secondary" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-slate-300" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-slate-300" />{' '}
+          </span>
+        </div>
+      );
+    } else if (rating <= 4) {
+      return (
+        <div className="flex items-center">
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-secondary" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-secondary" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-secondary" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-secondary" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-slate-300" />{' '}
+          </span>
+        </div>
+      );
+    } else if (rating <= 5) {
+      return (
+        <div className="flex items-center">
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-secondary" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-secondary" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-secondary" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-secondary" />{' '}
+          </span>
+          <span>
+            {' '}
+            <AiFillStar className="text-2xl text-secondary" />{' '}
+          </span>
+        </div>
+      );
+    }
+  };
 
   return (
     <div className="text-center px-12">
@@ -11,44 +141,11 @@ const ReviewInfo = ({ review }) => {
         </div>
       </div>
       <div className="review-description mb-3">
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Necessitatibus officiis praesentium sit voluptatibus, molestiae
-          doloremque quia amet? Sit, nam placeat.
-        </p>
+        <p>{description}</p>
       </div>
-      <span className="font-bold text-primary cursor-pointer">
-        Elisa Emmile
-      </span>
+      <span className="font-bold text-primary cursor-pointer">{name}</span>
       <br />
-      <div className="rating rating-md mt-2">
-        <input
-          type="radio"
-          name="rating-7"
-          className="mask mask-star-2 bg-orange-400"
-        />
-        <input
-          type="radio"
-          name="rating-7"
-          className="mask mask-star-2 bg-orange-400"
-          checked
-        />
-        <input
-          type="radio"
-          name="rating-7"
-          className="mask mask-star-2 bg-orange-400"
-        />
-        <input
-          type="radio"
-          name="rating-7"
-          className="mask mask-star-2 bg-orange-400"
-        />
-        <input
-          type="radio"
-          name="rating-7"
-          className="mask mask-star-2 bg-orange-400"
-        />
-      </div>
+      <div className="rating rating-md mt-2">{GetRating(rating)}</div>
     </div>
   );
 };

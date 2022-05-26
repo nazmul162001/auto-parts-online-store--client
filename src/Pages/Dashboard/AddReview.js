@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import swal from 'sweetalert';
 
 const AddReview = () => {
+  const ratingValue = [1, 2, 3, 4, 5];
+  const [rating, setRating] = useState(5);
+
+  console.log(rating);
+
   const handleRating = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -14,6 +19,7 @@ const AddReview = () => {
       name,
       img,
       description,
+      rating,
     };
 
     // post method for insert user review
@@ -43,36 +49,15 @@ const AddReview = () => {
           <h2 class="card-title">Select Your Review</h2>
           <div className="review">
             <div class="rating">
-              <input
-                type="radio"
-                name="rating-2"
-                class="mask mask-star-2 bg-orange-400"
-                checked
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                class="mask mask-star-2 bg-orange-400"
-                checked
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                class="mask mask-star-2 bg-orange-400"
-                checked
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                class="mask mask-star-2 bg-orange-400"
-                checked
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                class="mask mask-star-2 bg-orange-400"
-                checked
-              />
+              {ratingValue.map((rating) => (
+                <input
+                  onClick={() => setRating(rating)}
+                  type="radio"
+                  value="2"
+                  name="rating-2"
+                  class="mask mask-star-2 bg-orange-400"
+                />
+              ))}
             </div>
           </div>
 
