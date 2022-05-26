@@ -35,7 +35,7 @@ const AddProduct = () => {
   };
 
   return (
-    <div>
+    <div className="mb-48 md:mb-28">
       <h2 className="text-2xl text-center my-3">Add New Product</h2>
       <div className="card w-full  bg-base-100 px-12">
         <form onSubmit={handleAddProduct}>

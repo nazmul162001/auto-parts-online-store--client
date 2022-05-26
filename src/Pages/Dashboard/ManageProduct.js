@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
-import Spinner from '../Shared/Spinner';
 import ManageProductInfo from './ManageProductInfo';
 
 const ManageProduct = () => {
   const [services, setServices] = useState([]);
 
-  useEffect(()=> {
+  useEffect(() => {
     const url = 'https://boiling-ridge-27693.herokuapp.com/service';
     fetch(url)
-    .then(res=> res.json())
-    .then(data => setServices(data))
-  },[])
+      .then((res) => res.json())
+      .then((data) => setServices(data));
+  }, [services._id, services]);
 
   return (
-    <div className="my-16 px-12">
+    <div className="my-28 px-12">
       <div className="service-title text-center">
         <h3 className="text-primary text-5xl font-bold opacity-60">
           Manage Your Product

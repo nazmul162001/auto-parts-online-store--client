@@ -1,6 +1,6 @@
 # Welcome to my Auto Parts Online Store Project
 
-## This project host on Firebase & Heroku [Live Link:](https://foodie-store-6b0b2.web.app/)
+## This project host on Firebase & Heroku [Live Link:](https://auto-parts-store-6bc80.web.app/)
 
 ## About this project
 

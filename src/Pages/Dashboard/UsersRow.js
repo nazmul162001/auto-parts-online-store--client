@@ -35,10 +35,29 @@ const UsersRow = ({ user, refetch }) => {
   };
 
   const handleRemove = (id) => {
-    const url = `https://boiling-ridge-27693.herokuapp.com/admin/${id}`;
-    fetch(url, {
-      method: 'DELETE',
-    }).then((res) => res.json());
+    swal({
+      title: 'Are you sure?',
+      text: 'You want to remove this user?',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal('user has been deleted!', {
+          icon: 'success',
+        });
+        const url = `https://boiling-ridge-27693.herokuapp.com/admin/${id}`;
+        fetch(url, {
+          method: 'DELETE',
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            refetch();
+          });
+      } else {
+        // swal('Your imaginary file is safe!');
+      }
+    });
   };
 
   return (

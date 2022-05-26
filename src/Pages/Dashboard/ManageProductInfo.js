@@ -3,6 +3,7 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { BsSuitHeart } from 'react-icons/bs';
 import { Link, useParams } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const ManageProductInfo = ({ service }) => {
   const [color, setColor] = useState(false);
@@ -31,10 +32,25 @@ const ManageProductInfo = ({ service }) => {
   // };
 
   const handleDelete = (id) => {
-    const url = `https://boiling-ridge-27693.herokuapp.com/service/${id}`;
-    fetch(url, {
-      method: 'DELETE',
-    }).then((res) => res.json());
+    swal({
+      title: 'Are you sure?',
+      text: 'You want to delete this product?',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal('Your Product has been deleted!', {
+          icon: 'success',
+        });
+        const url = `https://boiling-ridge-27693.herokuapp.com/service/${id}`;
+        fetch(url, {
+          method: 'DELETE',
+        }).then((res) => res.json());
+      } else {
+        // swal('Your imaginary file is safe!');
+      }
+    });
   };
 
   return (

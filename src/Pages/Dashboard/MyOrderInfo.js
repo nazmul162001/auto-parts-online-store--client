@@ -1,13 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const MyOrderInfo = ({ order, index }) => {
   // delete order
   const handleDelete = (id) => {
-    const url = `https://boiling-ridge-27693.herokuapp.com/order/${id}`;
-    fetch(url, {
-      method: 'DELETE',
-    }).then((res) => res.json());
+    swal({
+      title: 'Are you sure?',
+      text: 'You want to remove this order?',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal('Your order has been deleted!', {
+          icon: 'success',
+        });
+        const url = `https://boiling-ridge-27693.herokuapp.com/order/${id}`;
+        fetch(url, {
+          method: 'DELETE',
+        }).then((res) => res.json());
+      } else {
+        // swal("Your imaginary file is safe!");
+      }
+    });
   };
 
   return (
@@ -33,13 +49,18 @@ const MyOrderInfo = ({ order, index }) => {
           </div>
         )}
       </td>
-      <td onClick={() => handleDelete(order._id)}>
+      <td>
         {order.paid ? (
           <button disabled className="btn btn-xs btn-error">
             Delete
           </button>
         ) : (
-          <button className="btn btn-xs btn-error">Delete</button>
+          <button
+            onClick={() => handleDelete(order._id)}
+            className="btn btn-xs btn-error"
+          >
+            Delete
+          </button>
         )}
       </td>
     </tr>

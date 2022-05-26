@@ -27,7 +27,6 @@ const Parts = () => {
     return <Spinner />;
   }
 
-  console.log(services);
 
   return (
     <div className="my-16 px-12">
