@@ -10,7 +10,12 @@ const ManageProduct = () => {
     isloading,
     refetch,
   } = useQuery('item', () =>
-    fetch('http://localhost:5000/service').then((res) => res.json())
+    fetch('http://localhost:5000/service', {
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      },
+    }).then((res) => res.json())
   );
   if (isloading) {
     return <Spinner />;
