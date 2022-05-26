@@ -19,16 +19,15 @@ const Parts = () => {
     isloading,
     refetch,
   } = useQuery('item', () =>
-    fetch('https://boiling-ridge-27693.herokuapp.com/service', {
-      method: 'GET',
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-      },
-    }).then((res) => res.json())
+    fetch('https://boiling-ridge-27693.herokuapp.com/service').then((res) =>
+      res.json()
+    )
   );
   if (isloading) {
     return <Spinner />;
   }
+
+  console.log(services);
 
   return (
     <div className="my-16 px-12">
