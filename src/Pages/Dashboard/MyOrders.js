@@ -11,11 +11,11 @@ const MyOrders = () => {
 
   // id ta passe na
   const { id } = useParams();
-  // console.log(id);
+  console.log(id);
 
   // delete order
-  const handleDelete = () => {
-    // const url = `http://localhost:5000/order/${id}`;
+  const handleDelete = (id) => {
+    // const url = `https://boiling-ridge-27693.herokuapp.com/order/${id}`;
     // fetch(url, {
     //   method: 'DELETE',
     // })
@@ -30,12 +30,15 @@ const MyOrders = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/order?email=${user.email}`, {
-        method: 'GET',
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-        },
-      })
+      fetch(
+        `https://boiling-ridge-27693.herokuapp.com/order?email=${user.email}`,
+        {
+          method: 'GET',
+          headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+          },
+        }
+      )
         .then((res) => {
           // console.log('res', res);
           if (res.status === 401 || res.status === 403) {

@@ -28,7 +28,7 @@ const Purchase = () => {
 
   // console.log(quantity);
 
-  const url = `http://localhost:5000/service/${id}`;
+  const url = `https://boiling-ridge-27693.herokuapp.com/service/${id}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => setService(data));
@@ -62,7 +62,7 @@ const Purchase = () => {
 
     // post method for insert user order
     // post-steps(3)
-    fetch('http://localhost:5000/order', {
+    fetch('https://boiling-ridge-27693.herokuapp.com/order', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

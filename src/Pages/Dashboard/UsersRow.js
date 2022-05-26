@@ -18,7 +18,7 @@ const UsersRow = ({ user, refetch }) => {
           icon: 'success',
         });
 
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://boiling-ridge-27693.herokuapp.com/user/admin/${email}`, {
           method: 'PUT',
           headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`,

@@ -13,7 +13,7 @@ const CheckoutForm = ({ order }) => {
   const { price, name, email, _id } = order;
 
   useEffect(() => {
-    fetch('http://localhost:5000/create-payment-intent', {
+    fetch('https://boiling-ridge-27693.herokuapp.com/create-payment-intent', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -74,7 +74,7 @@ const CheckoutForm = ({ order }) => {
         appointment: _id,
         transactionId: paymentIntent.id,
       };
-      fetch(`http://localhost:5000/order/${_id}`, {
+      fetch(`https://boiling-ridge-27693.herokuapp.com/order/${_id}`, {
         method: 'PATCH',
         headers: {
           'content-type': 'application/json',
