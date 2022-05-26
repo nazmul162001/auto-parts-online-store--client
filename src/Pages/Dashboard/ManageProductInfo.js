@@ -30,6 +30,13 @@ const ManageProductInfo = ({ service }) => {
   //     });
   // };
 
+  const handleDelete = (id) => {
+    const url = `https://boiling-ridge-27693.herokuapp.com/service/${id}`;
+    fetch(url, {
+      method: 'DELETE',
+    }).then((res) => res.json());
+  };
+
   return (
     <div className="available-part border-2 rounded-md">
       <div className="card w-96 h-[650px] bg-base-100 shadow-xl">
@@ -76,7 +83,7 @@ const ManageProductInfo = ({ service }) => {
           {/* <button className="btn btn-outline">Purchase</button> */}
           <div className="purchase-btn">
             <button
-              // onClick={handleDelete}
+              onClick={() => handleDelete(service._id)}
               className="btn-style w-full bg-red-500 mt-3"
             >
               <span></span>

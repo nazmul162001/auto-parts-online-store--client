@@ -34,6 +34,13 @@ const UsersRow = ({ user, refetch }) => {
     });
   };
 
+  const handleRemove = (id) => {
+    const url = `https://boiling-ridge-27693.herokuapp.com/admin/${id}`;
+    fetch(url, {
+      method: 'DELETE',
+    }).then((res) => res.json());
+  };
+
   return (
     <tr>
       <th>
@@ -58,7 +65,12 @@ const UsersRow = ({ user, refetch }) => {
         )}
       </td>
       <th>
-        <button className="btn btn-error btn-xs px-5">Remove</button>
+        <button
+          onClick={() => handleRemove(user._id)}
+          className="btn btn-error btn-xs px-5"
+        >
+          Remove
+        </button>
       </th>
     </tr>
   );
