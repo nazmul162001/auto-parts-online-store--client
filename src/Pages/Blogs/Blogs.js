@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Shared/Footer';
 
 const Blogs = () => {
   return (
@@ -6,7 +7,7 @@ const Blogs = () => {
       <h2 className="text-center text-5xl text-gray-500 my-5">
         Our Recents Blogs
       </h2>
-      <div className="accordion px-8">
+      <div className="accordion px-8 mb-12">
         <div id="accordion-collapse" data-accordion="collapse">
 
           <h2 id="accordion-collapse-heading-1">
@@ -222,6 +223,7 @@ const Blogs = () => {
 
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

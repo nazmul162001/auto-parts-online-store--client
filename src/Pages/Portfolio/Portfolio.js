@@ -3,6 +3,7 @@ import warehouse from '../../assets/images/portfolio/warehouse.png';
 import fitness from '../../assets/images/portfolio/fitness-corner.png';
 import analysis from '../../assets/images/portfolio/product-analysis.png';
 import todos from '../../assets/images/portfolio/todos.png';
+import Footer from '../Shared/Footer';
 
 const Portfolio = () => {
   return (
@@ -263,6 +264,7 @@ const Portfolio = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
