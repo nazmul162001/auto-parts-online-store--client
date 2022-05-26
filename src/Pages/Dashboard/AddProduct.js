@@ -11,7 +11,7 @@ const AddProduct = () => {
     const description = e.target.description.value;
     const img = e.target.imgURL.value;
 
-    const url = `http://localhost:5000/service`;
+    const url = `https://boiling-ridge-27693.herokuapp.com/service`;
     fetch(url, {
       method: 'POST',
       body: JSON.stringify({
