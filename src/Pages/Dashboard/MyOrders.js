@@ -3,30 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
+import MyOrderInfo from './MyOrderInfo';
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
-
-  // id ta passe na
-  const { id } = useParams();
-  console.log(id);
-
-  // delete order
-  const handleDelete = (id) => {
-    // const url = `https://boiling-ridge-27693.herokuapp.com/order/${id}`;
-    // fetch(url, {
-    //   method: 'DELETE',
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.deletedCound > 0) {
-    //       const remaining = orders.filter((order) => order._id !== id);
-    //       setOrders(remaining);
-    //     }
-    //   });
-  };
 
   useEffect(() => {
     if (user) {
@@ -52,7 +34,7 @@ const MyOrders = () => {
           setOrders(data);
         });
     }
-  }, [user, navigate]);
+  }, [user, navigate, orders]);
 
   return (
     <div>
@@ -73,40 +55,7 @@ const MyOrders = () => {
           </thead>
           <tbody>
             {orders.map((order, index) => (
-              <tr key={index}>
-                <th> {index + 1} </th>
-                <td>{order.productName}</td>
-                <td>{order.quantity} </td>
-                <td>{order.phone}</td>
-                <td>{order.address}</td>
-                <td>{order.price}</td>
-                <td>
-                  {order.price && !order.paid && (
-                    <Link to={`/dashboard/payment/${order._id}`}>
-                      <button className="btn btn-xs btn-secondary px-5 ">
-                        Pay
-                      </button>
-                    </Link>
-                  )}
-                  {order.price && order.paid && (
-                    <div>
-                      <p className="text-success text-xl">paid</p>
-                      <p className="text-gray-500">
-                        <strong>Trx:</strong> {order.transactionId}
-                      </p>
-                    </div>
-                  )}
-                </td>
-                <td onClick={handleDelete}>
-                  {order.paid ? (
-                    <button disabled className="btn btn-xs btn-error">
-                      Delete
-                    </button>
-                  ) : (
-                    <button className="btn btn-xs btn-error">Delete</button>
-                  )}
-                </td>
-              </tr>
+              <MyOrderInfo order={order} key={index} index={index} />
             ))}
           </tbody>
         </table>

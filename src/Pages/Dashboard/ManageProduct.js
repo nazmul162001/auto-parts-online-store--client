@@ -4,22 +4,14 @@ import Spinner from '../Shared/Spinner';
 import ManageProductInfo from './ManageProductInfo';
 
 const ManageProduct = () => {
-  // useQuery
-  const {
-    data: services,
-    isloading,
-    refetch,
-  } = useQuery('item', () =>
-    fetch('https://boiling-ridge-27693.herokuapp.com/service', {
-      method: 'GET',
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-      },
-    }).then((res) => res.json())
-  );
-  if (isloading) {
-    return <Spinner />;
-  }
+  const [services, setServices] = useState([]);
+
+  useEffect(()=> {
+    const url = 'https://boiling-ridge-27693.herokuapp.com/service';
+    fetch(url)
+    .then(res=> res.json())
+    .then(data => setServices(data))
+  },[])
 
   return (
     <div className="my-16 px-12">
