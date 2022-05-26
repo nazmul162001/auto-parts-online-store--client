@@ -35,7 +35,7 @@ const Navbar = ({ children }) => {
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* <!-- Navbar --> */}
-          <div className="w-full navbar bg-primary h-28 md:px-12 text-white sticky top-0 z-50 ">
+          <div className="w-full navbar bg-primary h-[65px] md:px-12 text-white sticky top-0 z-50 ">
             {/* flex flex-row-reverse md:flex-row */}
             <div className="flex-none lg:hidden">
               <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
@@ -64,14 +64,14 @@ const Navbar = ({ children }) => {
             <div className="flex-none hidden mx-auto lg:block">
               <ul className="menu menu-horizontal">
                 <li>
-                  <NavLink to="/">Home</NavLink>
+                  <Link deleting that product will not appear on the home page to="/">Home</Link>
                 </li>
-                <li>{user && <NavLink to="/dashboard">Dashboard</NavLink>}</li>
+                <li>{user && <Link to="/dashboard">Dashboard</Link>}</li>
                 <li>
-                  <NavLink to="/portfolio">Portfolio</NavLink>
+                  <Link to="/portfolio">Portfolio</Link>
                 </li>
                 <li>
-                  <NavLink to="/blogs">Blogs</NavLink>
+                  <Link to="/blogs">Blogs</Link>
                 </li>
                 <li>
                   {user ? (
