@@ -30,7 +30,7 @@ const Portfolio = () => {
           Github:
           <a
             className="ml-1 font-normal text-blue-700 underline"
-            href="https://foodie-store-6b0b2.web.app/"
+            href="https://github.com/nazmul162001"
             target="_blank"
           >
             My Gihub Profile

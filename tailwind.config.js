@@ -5,6 +5,7 @@ module.exports = {
       backgroundImage: {
         'hero-pattern': "url('./src/assets/images/footerBg.jpg')",
         'hero-bg': "url('./src/assets/images/formBg.jpg')",
+        'hero-bg-small': "url('./src/assets/images/small-line.svg')",
         // 'footer-texture': "url('/img/footer-texture.png')",
       },
     },

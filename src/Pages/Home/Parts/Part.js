@@ -9,7 +9,7 @@ const Part = ({ service }) => {
   const [color, setColor] = useState(false);
   const {
     img,
-    name,
+    productName,
     description,
     minimumOrder,
     availableQuantity,
@@ -24,7 +24,7 @@ const Part = ({ service }) => {
           <img className="w-56 p-8 rounded-xl" src={img} alt="/" />
         </figure>
         <div className="card-body text-justify">
-          <h2 className="card-title">{name} </h2>
+          <h2 className="card-title">{productName} </h2>
           <p>{description.slice(0, 150)}</p>
           <div className="order-minimum flex justify-between items-center">
             <p className="flex items-center ">

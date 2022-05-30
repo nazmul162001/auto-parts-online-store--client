@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import swal from 'sweetalert';
@@ -8,11 +8,12 @@ import formBg from '../../assets/images/formBg.jpg';
 
 const Purchase = () => {
   const [err, setErr] = useState('');
+  const [customQuantity, setCustomQuantity] = useState(0);
 
   const [user] = useAuthState(auth);
   const [service, setService] = useState({});
   const {
-    name,
+    productName,
     img,
     description,
     _id,
@@ -21,7 +22,10 @@ const Purchase = () => {
     availableQuantity,
   } = service;
 
-  let quantity = minimumOrder;
+  const [productQuantity, setProductQuantity] = useState(minimumOrder);
+  useEffect(() => {
+    setProductQuantity(minimumOrder);
+  }, [minimumOrder]);
 
   const { id } = useParams();
   // console.log(quantity);
@@ -81,6 +85,26 @@ const Purchase = () => {
       });
   };
 
+  useEffect(() => {
+    if (customQuantity === '') {
+      setErr('Please input Your Quantity');
+      return;
+    }
+    if (customQuantity > parseInt(availableQuantity)) {
+      setErr('Order Quantitiy can not bigger than available quantity');
+    } else if (customQuantity < parseInt(minimumOrder)) {
+      setErr('Order Quantity can not smaller than minimum order');
+    } else {
+      setErr('');
+    }
+  }, [customQuantity]);
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    setProductQuantity(customQuantity);
+    swal("Good job!", "You clicked the button!", "success");
+  };
+
   return (
     <section className="purchase w-full">
       <h1 className="text-center text-gray-500 opacity-60 text-5xl mt-12 font-bold">
@@ -100,7 +124,7 @@ const Purchase = () => {
           </h4>
           <h4 className="text-xl">
             {' '}
-            <strong className="text-gray-500">Name:</strong> {name}{' '}
+            <strong className="text-gray-500">Name:</strong> {productName}{' '}
           </h4>
           <h4 className="text-xl">
             {' '}
@@ -125,6 +149,34 @@ const Purchase = () => {
           </h4>
         </div>
       </div>
+
+      {/* handle quantity  */}
+
+      <form className="pl-12 mb-8">
+        <label htmlFor="quantityUpdate">Set Your Quantity Here</label>
+        <br />
+        <input
+          type="number"
+          onChange={(e) => setCustomQuantity(e.target.value)}
+          value={customQuantity}
+          placeholder="Enter Your quantity"
+          name="updateQuantity"
+          class="input input-bordered input-info w-full max-w-xs"
+        />
+        <br />
+        <p className="text-red-500 italic text-lg"> {err} </p>
+        <input
+          onClick={handleUpdate}
+          className={
+            err || customQuantity === 0
+              ? 'disable pointer-events-none hover:bg-transparent border-4 px-5 py-2 my-2 cursor-not-allowed opacity-50'
+              : 'btn btn-outline btn-primary my-2'
+          }
+          type="submit"
+          value="Update Quantity"
+        />
+      </form>
+
       <div className="form">
         <h2 className="text-center text-gray-500 text-5xl">
           Purchase This Item
@@ -188,7 +240,7 @@ const Purchase = () => {
                   <input
                     type="text"
                     name="productName"
-                    value={name}
+                    value={productName}
                     className="input input-bordered"
                     disabled
                   />
@@ -208,34 +260,16 @@ const Purchase = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="text-white label-text">
-                      Minimum Order Quantity:
-                    </span>
+                    <span className="text-white label-text">Quantity:</span>
                   </label>
                   <input
-                    onChange={(e) => {
-                      quantity = e.target.value;
-                      if (quantity > availableQuantity) {
-                        setErr(
-                          'Quantity can not bigger than available quantity'
-                        );
-                      } else if (quantity < minimumOrder) {
-                        setErr(
-                          'Quantity can not smaller thant minimum order quantity'
-                        );
-                      } else {
-                        setErr('');
-                      }
-                    }}
                     type="number"
                     name="quantity"
-                    defaultValue={quantity}
+                    Value={productQuantity}
+                    disabled
                     placeholder="Enter Your Quantity"
                     className="input input-bordered"
                   />
-                  <label className="text-warning  text-xl " htmlFor="err">
-                    {err}
-                  </label>
                 </div>
                 <div className="form-control">
                   <label className="label">

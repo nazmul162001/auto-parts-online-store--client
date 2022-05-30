@@ -20,6 +20,12 @@ import RequireAdmin from './Pages/Login/RequireAdmin';
 import Payment from './Pages/Dashboard/Payment';
 import NotFound from './Pages/NotFound/NotFound';
 import Blogs from './Pages/Blogs/Blogs';
+// aos
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init({
+  
+});
 
 function App() {
   return (

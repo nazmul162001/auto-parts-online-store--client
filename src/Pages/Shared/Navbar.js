@@ -35,7 +35,7 @@ const Navbar = ({ children }) => {
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* <!-- Navbar --> */}
-          <div className="w-full navbar bg-primary h-[65px] md:px-12 text-white sticky top-0 z-50 ">
+          <div className="w-full navbar bg-primary h-[65px] md:px-12 text-white sticky top-0 z-50 flex justify-between">
             {/* flex flex-row-reverse md:flex-row */}
             <div className="flex-none lg:hidden">
               <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
@@ -53,10 +53,35 @@ const Navbar = ({ children }) => {
                 </svg>
               </label>
             </div>
+            {/* logo header */}
             <div className="">
               <img className="w-38" src={logo} alt="/logo" />
-              {/* <h2 className="text-xl md:text-3xl text-white">Auto Parts</h2> */}
             </div>
+
+            {/* start dashboard sidebar  */}
+
+            <div className="navbar-end flex">
+              <label
+                htmlFor="my-drawer-2"
+                className="btn btn-square btn-ghost lg:hidden"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block w-6 h-6 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </label>
+            </div>
+
+            {/* End dashboard sidebar  */}
+
             {/* <div className="flex justify-center items-center">
               <img className="w-8 md:w-12" src={logo} alt="/logo" />
               <h2 className="text-xl md:text-3xl text-white">Auto Parts</h2>
@@ -64,7 +89,7 @@ const Navbar = ({ children }) => {
             <div className="flex-none hidden mx-auto lg:block">
               <ul className="menu menu-horizontal">
                 <li>
-                  <Link deleting that product will not appear on the home page to="/">Home</Link>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>{user && <Link to="/dashboard">Dashboard</Link>}</li>
                 <li>
@@ -111,7 +136,7 @@ const Navbar = ({ children }) => {
                 </li>
               </ul>
             </div>
-            <div className="navbar-end">
+            {/* <div className="navbar-end flex">
               <label
                 htmlFor="my-drawer-2"
                 className="btn btn-square btn-ghost lg:hidden"
@@ -129,12 +154,13 @@ const Navbar = ({ children }) => {
                   ></path>
                 </svg>
               </label>
-            </div>
+            </div> */}
           </div>{' '}
           {/* navbar end */}
           {/* <!-- Page content here --> */}
           {children}
         </div>
+
         <div className="drawer-side">
           <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
           <ul className="menu overflow-y-auto w-80 bg-primary">
