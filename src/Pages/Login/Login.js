@@ -73,6 +73,18 @@ const Login = () => {
           </div>
           <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
             <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="admin-credential shadow-2xl border-[1px] p-3 my-5 border-slate-300">
+                <p>
+                  <strong>Admin Credential:</strong>{' '}
+                </p>
+                <p>
+                  <strong className="text-gray-500">Email:</strong>{' '}
+                  test.project@gmail.com
+                </p>
+                <p>
+                  <strong className="text-gray-500">Pass:</strong> 112233
+                </p>
+              </div>
               <div className="flex flex-row items-center justify-center lg:justify-start">
                 <p className="text-lg mb-0 mr-4">Sign in with</p>
                 <span
