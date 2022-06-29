@@ -1,15 +1,59 @@
 import React from 'react';
+import { useState } from 'react';
 
-const ManageSingleOrder = ({manage}) => {
+const ManageSingleOrder = ({ manage, index }) => {
+  const {
+    productName,
+    email,
+    status,
+    _id,
+    quantity,
+    productId,
+    name,
+    phone,
+    address,
+    location,
+    price,
+  } = manage;
+  // const [action, setAction] = useState('');
+  // console.log(action);
 
-  const {name, email} = manage
-  
+  const handleStatus = async (e) => {
+    // setAction(e.target.value);
+    // const data = {
+    //   status: e.target.value
+    // };
+    await fetch(`https://boiling-ridge-27693.herokuapp.com/manage/${_id}`, {
+      method: 'PUT',
+      body: JSON.stringify({ status: e.target.value }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+
+    console.log(e.target.value);
+  };
+
   return (
     <tr>
-      <th>1</th>
-      <td>{name}</td>
-      <td>Quality Control Specialist</td>
-      <td>Blue</td>
+      <th>{index + 1}</th>
+      <td>{email}</td>
+      <td>{productName}</td>
+      <td>{quantity}</td>
+      <td>
+        <select
+          onChange={handleStatus}
+          class="select select-bordered select-sm"
+        >
+          <option disabled selected>
+            {status}
+          </option>
+          <option>Pending</option>
+          <option>Shift</option>
+        </select>
+      </td>
     </tr>
   );
 };

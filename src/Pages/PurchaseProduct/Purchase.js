@@ -62,6 +62,7 @@ const Purchase = () => {
       location: location,
       productName: productName,
       price: price,
+      status: "pending",
     };
 
     // post method for insert user order
