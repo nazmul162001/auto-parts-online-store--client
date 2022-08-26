@@ -39,8 +39,6 @@ const ManageSingleOrder = ({ manage, index }) => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
-
-    // console.log(e.target.value);
   };
 
   return (
