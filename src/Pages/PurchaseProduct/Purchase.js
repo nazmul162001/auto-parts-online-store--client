@@ -62,7 +62,7 @@ const Purchase = () => {
       location: location,
       productName: productName,
       price: price,
-      status: "pending",
+      status: 'pending',
     };
 
     // post method for insert user order
@@ -103,7 +103,7 @@ const Purchase = () => {
   const handleUpdate = (e) => {
     e.preventDefault();
     setProductQuantity(customQuantity);
-    swal("Good job!", "You clicked the button!", "success");
+    swal('Good job!', 'You clicked the button!', 'success');
   };
 
   return (

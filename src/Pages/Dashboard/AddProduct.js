@@ -1,5 +1,6 @@
 import React from 'react';
 import swal from 'sweetalert';
+// add product 
 
 const AddProduct = () => {
   const handleAddProduct = (e) => {

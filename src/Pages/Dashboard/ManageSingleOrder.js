@@ -24,10 +24,10 @@ const ManageSingleOrder = ({ manage, index }) => {
     // const data = {
     //   status: e.target.value
     // };
-    if(e.target.value === "Shift"){
-      swal("Do you want to shift this order?");
-    } else if(e.target.value === "Pending"){
-      swal("Do you want to place the order pending?");
+    if (e.target.value === 'Shift') {
+      swal('Do you want to shift this order?');
+    } else if (e.target.value === 'Pending') {
+      swal('Do you want to place the order pending?');
     }
     // console.log(e.target.value);
     await fetch(`https://boiling-ridge-27693.herokuapp.com/manage/${_id}`, {
