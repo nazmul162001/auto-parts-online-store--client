@@ -1,15 +1,15 @@
-import React from 'react';
-import swal from 'sweetalert';
+import React from "react";
+import swal from "sweetalert";
 
 const UsersRow = ({ user, refetch }) => {
   const { email, role } = user;
 
   // make admin handler
   const makeAdmin = () => {
-    fetch(`https://boiling-ridge-27693.herokuapp.com/user/admin/${email}`, {
-      method: 'PUT',
+    fetch(`http://localhost:5000/user/admin/${email}`, {
+      method: "PUT",
       headers: {
-        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
       .then((res) => res.json())
@@ -18,21 +18,21 @@ const UsersRow = ({ user, refetch }) => {
       });
 
     swal({
-      title: 'Are you sure?',
-      text: 'You Want to Make an Admin?',
-      icon: 'warning',
+      title: "Are you sure?",
+      text: "You Want to Make an Admin?",
+      icon: "warning",
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        swal('Successfully Make an Admin', {
-          icon: 'success',
+        swal("Successfully Make an Admin", {
+          icon: "success",
         });
 
-        fetch(`https://boiling-ridge-27693.herokuapp.com/user/admin/${email}`, {
-          method: 'PUT',
+        fetch(`http://localhost:5000/user/admin/${email}`, {
+          method: "PUT",
           headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           },
         })
           .then((res) => res.json())
@@ -47,19 +47,19 @@ const UsersRow = ({ user, refetch }) => {
 
   const handleRemove = (id) => {
     swal({
-      title: 'Are you sure?',
-      text: 'You want to remove this user?',
-      icon: 'warning',
+      title: "Are you sure?",
+      text: "You want to remove this user?",
+      icon: "warning",
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        swal('user has been deleted!', {
-          icon: 'success',
+        swal("user has been deleted!", {
+          icon: "success",
         });
-        const url = `https://boiling-ridge-27693.herokuapp.com/admin/${id}`;
+        const url = `http://localhost:5000/admin/${id}`;
         fetch(url, {
-          method: 'DELETE',
+          method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
@@ -86,7 +86,7 @@ const UsersRow = ({ user, refetch }) => {
         </div>
       </td>
       <td>
-        {role === 'admin' ? (
+        {role === "admin" ? (
           <button className="btn btn-xs bg-success px-9">Admin</button>
         ) : (
           <button onClick={makeAdmin} className="btn btn-xs px-5 btn-secondary">

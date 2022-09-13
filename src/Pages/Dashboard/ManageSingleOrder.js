@@ -1,6 +1,6 @@
-import React from 'react';
-import { useState } from 'react';
-import swal from 'sweetalert';
+import React from "react";
+import { useState } from "react";
+import swal from "sweetalert";
 
 const ManageSingleOrder = ({ manage, index }) => {
   const {
@@ -24,17 +24,17 @@ const ManageSingleOrder = ({ manage, index }) => {
     // const data = {
     //   status: e.target.value
     // };
-    if (e.target.value === 'Shift') {
-      swal('Do you want to shift this order?');
-    } else if (e.target.value === 'Pending') {
-      swal('Do you want to place the order pending?');
+    if (e.target.value === "Shift") {
+      swal("Do you want to shift this order?");
+    } else if (e.target.value === "Pending") {
+      swal("Do you want to place the order pending?");
     }
     // console.log(e.target.value);
-    await fetch(`https://boiling-ridge-27693.herokuapp.com/manage/${_id}`, {
-      method: 'PUT',
+    await fetch(`http://localhost:5000/manage/${_id}`, {
+      method: "PUT",
       body: JSON.stringify({ status: e.target.value }),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     })
       .then((res) => res.json())

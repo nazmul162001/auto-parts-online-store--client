@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import reviewUser from '../../../assets/images/review-user.png';
+import React, { useEffect, useState } from "react";
+import reviewUser from "../../../assets/images/review-user.png";
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/pagination";
 // import required modules
-import { Pagination } from 'swiper';
-import './Review.css';
-import ReviewInfo from './ReviewInfo';
-import Spinner from '../../Shared/Spinner';
-import { useQuery } from 'react-query';
+import { Pagination } from "swiper";
+import "./Review.css";
+import ReviewInfo from "./ReviewInfo";
+import Spinner from "../../Shared/Spinner";
+import { useQuery } from "react-query";
 
 const Review = () => {
   // const reviews = [
@@ -67,7 +67,7 @@ const Review = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch('https://boiling-ridge-27693.herokuapp.com/review')
+    fetch("http://localhost:5000/review")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);

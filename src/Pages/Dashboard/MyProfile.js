@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
-import { FaEdit } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { FaEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const MyProfile = () => {
   const [myUser, setMyUser] = useState([]);
@@ -11,7 +11,7 @@ const MyProfile = () => {
 
   const navigate = useNavigate();
   // const { data: userInfo, isLoading } = useQuery('getUser', () =>
-  //   fetch(`https://boiling-ridge-27693.herokuapp.com/user/${user.email}`).then(
+  //   fetch(`http://localhost:5000/user/${user.email}`).then(
   //     (res) => res.json()
   //   )
   // );
@@ -21,7 +21,7 @@ const MyProfile = () => {
   // }
 
   useEffect(() => {
-    fetch(`https://boiling-ridge-27693.herokuapp.com/user/${user?.email}`)
+    fetch(`http://localhost:5000/user/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMyUser(data));
   }, [user.email]);
@@ -38,7 +38,7 @@ const MyProfile = () => {
           to="/editProfile"
           className="text-xl text-right absolute top-0 right-0 m-3"
         >
-          <FaEdit />{' '}
+          <FaEdit />{" "}
         </Link>
         <figure className="">
           <img

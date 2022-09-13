@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import React, { useEffect, useState } from "react";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 const CheckoutForm = ({ order }) => {
   const stripe = useStripe();
   const elements = useElements();
-  const [cardError, setCardError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [cardError, setCardError] = useState("");
+  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
-  const [transactionId, setTransactionId] = useState('');
-  const [clientSecret, setClientSecret] = useState('');
+  const [transactionId, setTransactionId] = useState("");
+  const [clientSecret, setClientSecret] = useState("");
 
   const { price, name, email, _id } = order;
 
   useEffect(() => {
-    fetch('https://boiling-ridge-27693.herokuapp.com/create-payment-intent', {
-      method: 'POST',
+    fetch("http://localhost:5000/create-payment-intent", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json',
-        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify({ price }),
     })
@@ -42,12 +42,12 @@ const CheckoutForm = ({ order }) => {
     }
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: 'card',
+      type: "card",
       card,
     });
 
-    setCardError(error?.message || '');
-    setSuccess('');
+    setCardError(error?.message || "");
+    setSuccess("");
     setLoading(true);
 
     // confirm card payment
@@ -65,20 +65,20 @@ const CheckoutForm = ({ order }) => {
       setCardError(intentError?.message);
       setLoading(false);
     } else {
-      setCardError('');
+      setCardError("");
       setTransactionId(paymentIntent.id);
-      setSuccess('Your Payment is Successfull');
+      setSuccess("Your Payment is Successfull");
 
       // store payment
       const payment = {
         appointment: _id,
         transactionId: paymentIntent.id,
       };
-      fetch(`https://boiling-ridge-27693.herokuapp.com/order/${_id}`, {
-        method: 'PATCH',
+      fetch(`http://localhost:5000/order/${_id}`, {
+        method: "PATCH",
         headers: {
-          'content-type': 'application/json',
-          authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
         body: JSON.stringify(payment),
       })
@@ -97,14 +97,14 @@ const CheckoutForm = ({ order }) => {
           options={{
             style: {
               base: {
-                fontSize: '16px',
-                color: '#424770',
-                '::placeholder': {
-                  color: '#aab7c4',
+                fontSize: "16px",
+                color: "#424770",
+                "::placeholder": {
+                  color: "#aab7c4",
                 },
               },
               invalid: {
-                color: '#9e2146',
+                color: "#9e2146",
               },
             },
           }}
@@ -124,8 +124,8 @@ const CheckoutForm = ({ order }) => {
         <div className="text-success italic text-xl font-bold">
           <p>{success}</p>
           <p>
-            Your transaction ID:{' '}
-            <span className="text-orange-500 font-bold">{transactionId} </span>{' '}
+            Your transaction ID:{" "}
+            <span className="text-orange-500 font-bold">{transactionId} </span>{" "}
           </p>
         </div>
       )}

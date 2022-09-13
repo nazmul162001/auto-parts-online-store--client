@@ -1,24 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import swal from 'sweetalert';
+import React from "react";
+import { Link } from "react-router-dom";
+import swal from "sweetalert";
 
 const MyOrderInfo = ({ order, index }) => {
   // delete order
   const handleDelete = (id) => {
     swal({
-      title: 'Are you sure?',
-      text: 'You want to remove this order?',
-      icon: 'warning',
+      title: "Are you sure?",
+      text: "You want to remove this order?",
+      icon: "warning",
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        swal('Your order has been deleted!', {
-          icon: 'success',
+        swal("Your order has been deleted!", {
+          icon: "success",
         });
-        const url = `https://boiling-ridge-27693.herokuapp.com/order/${id}`;
+        const url = `http://localhost:5000/order/${id}`;
         fetch(url, {
-          method: 'DELETE',
+          method: "DELETE",
         }).then((res) => res.json());
       } else {
         // swal("Your imaginary file is safe!");

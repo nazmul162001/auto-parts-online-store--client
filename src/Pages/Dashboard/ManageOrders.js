@@ -1,13 +1,13 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import ManageSingleOrder from './ManageSingleOrder';
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import ManageSingleOrder from "./ManageSingleOrder";
 
 const ManageOrders = () => {
   const [manages, setManages] = useState([]);
 
   useEffect(() => {
-    fetch('https://boiling-ridge-27693.herokuapp.com/manage')
+    fetch("http://localhost:5000/manage")
       .then((res) => res.json())
       .then((data) => setManages(data));
   }, []);

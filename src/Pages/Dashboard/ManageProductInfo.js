@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { MdKeyboardArrowRight } from 'react-icons/md';
-import { BsCurrencyDollar } from 'react-icons/bs';
-import { BsSuitHeart } from 'react-icons/bs';
-import { Link, useParams } from 'react-router-dom';
-import swal from 'sweetalert';
+import React, { useState } from "react";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { BsCurrencyDollar } from "react-icons/bs";
+import { BsSuitHeart } from "react-icons/bs";
+import { Link, useParams } from "react-router-dom";
+import swal from "sweetalert";
 
 const ManageProductInfo = ({ service }) => {
   const [color, setColor] = useState(false);
@@ -18,7 +18,7 @@ const ManageProductInfo = ({ service }) => {
   } = service;
 
   // const handleDelete = () => {
-  //   const url = `https://boiling-ridge-27693.herokuapp.com/service/${_id}`;
+  //   const url = `http://localhost:5000/service/${_id}`;
   //   fetch(url, {
   //     method: 'DELETE',
   //   })
@@ -33,19 +33,19 @@ const ManageProductInfo = ({ service }) => {
 
   const handleDelete = (id) => {
     swal({
-      title: 'Are you sure?',
-      text: 'You want to delete this product?',
-      icon: 'warning',
+      title: "Are you sure?",
+      text: "You want to delete this product?",
+      icon: "warning",
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        swal('Your Product has been deleted!', {
-          icon: 'success',
+        swal("Your Product has been deleted!", {
+          icon: "success",
         });
-        const url = `https://boiling-ridge-27693.herokuapp.com/service/${id}`;
+        const url = `http://localhost:5000/service/${id}`;
         fetch(url, {
-          method: 'DELETE',
+          method: "DELETE",
         }).then((res) => res.json());
       } else {
         // swal('Your imaginary file is safe!');
@@ -71,14 +71,14 @@ const ManageProductInfo = ({ service }) => {
           </div>
           <div className="quantity flex justify-between items-center">
             <p className="flex items-center ">
-              <MdKeyboardArrowRight className="text-primary text-xl" />{' '}
+              <MdKeyboardArrowRight className="text-primary text-xl" />{" "}
               Available Quantity
             </p>
             <p className="text-right">{availableQuantity}</p>
           </div>
           <div className="price flex justify-between items-center">
             <p className="flex items-center font-bold text-xl">
-              {' '}
+              {" "}
               <BsCurrencyDollar className="" /> {price}
             </p>
             <div>
@@ -90,9 +90,9 @@ const ManageProductInfo = ({ service }) => {
               >
                 <BsSuitHeart
                   className={
-                    color ? 'text-gray-500 text-2xl' : 'text-primary text-2xl'
+                    color ? "text-gray-500 text-2xl" : "text-primary text-2xl"
                   }
-                />{' '}
+                />{" "}
               </p>
             </div>
           </div>

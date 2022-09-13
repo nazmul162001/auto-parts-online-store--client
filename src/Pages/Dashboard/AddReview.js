@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import swal from 'sweetalert';
+import React, { useState } from "react";
+import swal from "sweetalert";
 
 const AddReview = () => {
   const ratingValue = [1, 2, 3, 4, 5];
@@ -24,10 +24,10 @@ const AddReview = () => {
 
     // post method for insert user review
 
-    fetch('https://boiling-ridge-27693.herokuapp.com/review', {
-      method: 'POST',
+    fetch("http://localhost:5000/review", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json',
+        "content-type": "application/json",
       },
       body: JSON.stringify(review),
     })
@@ -35,7 +35,7 @@ const AddReview = () => {
       .then((data) => {
         // console.log(data);
         e.target.reset();
-        swal('Congratulations!', 'Successfully Added Your Review!', 'success');
+        swal("Congratulations!", "Successfully Added Your Review!", "success");
       });
   };
 

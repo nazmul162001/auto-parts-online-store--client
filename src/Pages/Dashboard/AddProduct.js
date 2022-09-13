@@ -1,6 +1,6 @@
-import React from 'react';
-import swal from 'sweetalert';
-// add product 
+import React from "react";
+import swal from "sweetalert";
+// add product
 
 const AddProduct = () => {
   const handleAddProduct = (e) => {
@@ -12,9 +12,9 @@ const AddProduct = () => {
     const description = e.target.description.value;
     const img = e.target.imgURL.value;
 
-    const url = `https://boiling-ridge-27693.herokuapp.com/service`;
+    const url = `http://localhost:5000/service`;
     fetch(url, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify({
         productName,
         price,
@@ -24,14 +24,14 @@ const AddProduct = () => {
         img,
       }),
       headers: {
-        'Content-type': 'application/json; charset=UTF-8',
+        "Content-type": "application/json; charset=UTF-8",
       },
     })
       .then((response) => response.json())
       .then((data) => {
         // console.log(data);
         e.target.reset();
-        swal('Congratulations!', 'Successfully Added Product!', 'success');
+        swal("Congratulations!", "Successfully Added Product!", "success");
       });
   };
 

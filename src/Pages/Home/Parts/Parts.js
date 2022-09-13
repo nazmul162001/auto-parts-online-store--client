@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
-import Spinner from '../../Shared/Spinner';
-import Part from './Part';
+import React, { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import Spinner from "../../Shared/Spinner";
+import Part from "./Part";
 
 const Parts = () => {
   // const [services, setServices] = useState([]);
 
   // useEffect(()=> {
-  //   const url = 'https://boiling-ridge-27693.herokuapp.com/service';
+  //   const url = 'http://localhost:5000/service';
   //   fetch(url)
   //   .then(res=> res.json())
   //   .then(data => setServices(data))
@@ -18,10 +18,8 @@ const Parts = () => {
     data: services,
     isloading,
     refetch,
-  } = useQuery('item', () =>
-    fetch('https://boiling-ridge-27693.herokuapp.com/service').then((res) =>
-      res.json()
-    )
+  } = useQuery("item", () =>
+    fetch("http://localhost:5000/service").then((res) => res.json())
   );
   if (isloading) {
     return <Spinner />;

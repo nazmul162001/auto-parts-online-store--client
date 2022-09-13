@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useParams } from 'react-router-dom';
-import swal from 'sweetalert';
-import auth from '../../firebase.init';
-import Footer from '../Shared/Footer';
-import formBg from '../../assets/images/formBg.jpg';
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useParams } from "react-router-dom";
+import swal from "sweetalert";
+import auth from "../../firebase.init";
+import Footer from "../Shared/Footer";
+import formBg from "../../assets/images/formBg.jpg";
 
 const Purchase = () => {
-  const [err, setErr] = useState('');
+  const [err, setErr] = useState("");
   const [customQuantity, setCustomQuantity] = useState(0);
 
   const [user] = useAuthState(auth);
@@ -32,7 +32,7 @@ const Purchase = () => {
 
   // console.log(quantity);
 
-  const url = `https://boiling-ridge-27693.herokuapp.com/service/${id}`;
+  const url = `http://localhost:5000/service/${id}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => setService(data));
@@ -62,15 +62,15 @@ const Purchase = () => {
       location: location,
       productName: productName,
       price: price,
-      status: 'pending',
+      status: "pending",
     };
 
     // post method for insert user order
     // post-steps(3)
-    fetch('https://boiling-ridge-27693.herokuapp.com/order', {
-      method: 'POST',
+    fetch("http://localhost:5000/order", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json',
+        "content-type": "application/json",
       },
       body: JSON.stringify(order),
     })
@@ -79,31 +79,31 @@ const Purchase = () => {
         // console.log(data);
         e.target.reset();
         swal(
-          'Congratulations!',
-          'Successfully Purchase this product!',
-          'success'
+          "Congratulations!",
+          "Successfully Purchase this product!",
+          "success"
         );
       });
   };
 
   useEffect(() => {
-    if (customQuantity === '') {
-      setErr('Please input Your Quantity');
+    if (customQuantity === "") {
+      setErr("Please input Your Quantity");
       return;
     }
     if (customQuantity > parseInt(availableQuantity)) {
-      setErr('Order Quantitiy can not bigger than available quantity');
+      setErr("Order Quantitiy can not bigger than available quantity");
     } else if (customQuantity < parseInt(minimumOrder)) {
-      setErr('Order Quantity can not smaller than minimum order');
+      setErr("Order Quantity can not smaller than minimum order");
     } else {
-      setErr('');
+      setErr("");
     }
   }, [customQuantity]);
 
   const handleUpdate = (e) => {
     e.preventDefault();
     setProductQuantity(customQuantity);
-    swal('Good job!', 'You clicked the button!', 'success');
+    swal("Good job!", "You clicked the button!", "success");
   };
 
   return (
@@ -120,33 +120,33 @@ const Purchase = () => {
         </div>
         <div className="card-body text-left">
           <h4 className="text-xl">
-            {' '}
-            <strong className="text-gray-500">Product ID:</strong> {_id}{' '}
+            {" "}
+            <strong className="text-gray-500">Product ID:</strong> {_id}{" "}
           </h4>
           <h4 className="text-xl">
-            {' '}
-            <strong className="text-gray-500">Name:</strong> {productName}{' '}
+            {" "}
+            <strong className="text-gray-500">Name:</strong> {productName}{" "}
           </h4>
           <h4 className="text-xl">
-            {' '}
-            <strong className="text-gray-500">Price: $</strong> {price}{' '}
+            {" "}
+            <strong className="text-gray-500">Price: $</strong> {price}{" "}
           </h4>
           <h4 className="text-xl">
-            {' '}
+            {" "}
             <strong className="text-gray-500">
               Minimum Order Quantity:
-            </strong>{' '}
-            {minimumOrder}{' '}
+            </strong>{" "}
+            {minimumOrder}{" "}
           </h4>
           <h4 className="text-xl">
-            {' '}
-            <strong className="text-gray-500">Available Quantity:</strong>{' '}
-            {availableQuantity}{' '}
+            {" "}
+            <strong className="text-gray-500">Available Quantity:</strong>{" "}
+            {availableQuantity}{" "}
           </h4>
           <h4 className="text-xl text-gray-500">
-            {' '}
-            <strong className="text-gray-500">Product Description:</strong>{' '}
-            {description}{' '}
+            {" "}
+            <strong className="text-gray-500">Product Description:</strong>{" "}
+            {description}{" "}
           </h4>
         </div>
       </div>
@@ -170,8 +170,8 @@ const Purchase = () => {
           onClick={handleUpdate}
           className={
             err || customQuantity === 0
-              ? 'disable pointer-events-none hover:bg-transparent border-4 px-5 py-2 my-2 cursor-not-allowed opacity-50'
-              : 'btn btn-outline btn-primary my-2'
+              ? "disable pointer-events-none hover:bg-transparent border-4 px-5 py-2 my-2 cursor-not-allowed opacity-50"
+              : "btn btn-outline btn-primary my-2"
           }
           type="submit"
           value="Update Quantity"
@@ -189,10 +189,10 @@ const Purchase = () => {
           <div
             style={{
               background: `url(${formBg})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundAttachment: 'fixed',
-              backgroundRepeat: 'no-repeat',
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundAttachment: "fixed",
+              backgroundRepeat: "no-repeat",
             }}
             className="hero py-28"
           >

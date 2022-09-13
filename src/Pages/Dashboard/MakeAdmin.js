@@ -1,18 +1,18 @@
-import React from 'react';
-import { useQuery } from 'react-query';
-import Spinner from '../Shared/Spinner';
-import UsersRow from './UsersRow';
+import React from "react";
+import { useQuery } from "react-query";
+import Spinner from "../Shared/Spinner";
+import UsersRow from "./UsersRow";
 
 const MakeAdmin = () => {
   const {
     data: users,
     isLoading,
     refetch,
-  } = useQuery('users', () =>
-    fetch('https://boiling-ridge-27693.herokuapp.com/user', {
-      method: 'GET',
+  } = useQuery("users", () =>
+    fetch("http://localhost:5000/user", {
+      method: "GET",
       headers: {
-        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     }).then((res) => res.json())
   );
