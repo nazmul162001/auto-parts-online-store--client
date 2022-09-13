@@ -4,10 +4,20 @@ import auth from "../../firebase.init";
 import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import UpdateProfile from "./UpdateProfile";
 
 const MyProfile = () => {
   const [myUser, setMyUser] = useState([]);
   const [user] = useAuthState(auth);
+  const [profile, setProfile] = useState([]);
+
+  fetch("http://localhost:5000/getUserProfile")
+    .then((res) => res.json())
+    .then((data) => setProfile(data[0]));
+
+  console.log(profile);
+
+  const { Education, Number, Location, Linkedin } = profile;
 
   const navigate = useNavigate();
   // const { data: userInfo, isLoading } = useQuery('getUser', () =>
@@ -23,7 +33,7 @@ const MyProfile = () => {
   useEffect(() => {
     fetch(`http://localhost:5000/user/${user?.email}`)
       .then((res) => res.json())
-      .then((data) => setMyUser(data));
+      .then((data) => setMyUser(data[0]));
   }, [user.email]);
 
   console.log(myUser);
@@ -34,12 +44,10 @@ const MyProfile = () => {
         My Profile
       </h2>
       <div class="card grid grid-cols-1 md:grid-cols-2 my-profile mx-auto justify-center items-center md:px-0 4/5 md:w-2/3 bg-base-100 mt-12 w-full relative">
-        <Link
-          to="/editProfile"
-          className="text-xl text-right absolute top-0 right-0 m-3"
-        >
-          <FaEdit />{" "}
-        </Link>
+        <span className="text-xl text-right absolute top-0 right-0 m-3">
+          {/* <label htmlFor="my-modal-6" className="btn modal-button"> <FaEdit /> </label> */}
+          <UpdateProfile></UpdateProfile>
+        </span>
         <figure className="">
           <img
             className="w-56 p-8 rounded-lg"
@@ -66,31 +74,27 @@ const MyProfile = () => {
           />
           <label htmlFor="name">Education:</label>
           <input
-            type="text"
-            name="Education"
-            placeholder="Your Education"
-            class="input input-bordered input-primary w-full "
-          />
-          <label htmlFor="name">Location:</label>
-          <input
-            type="text"
-            name="location"
-            placeholder="Your Current Location"
+            type="email"
+            name="email"
+            value={Education}
+            disabled
             class="input input-bordered input-primary w-full "
           />
           <label htmlFor="name">Number:</label>
           <input
             type="number"
             name="number"
-            placeholder="Your Number"
+            value={Number}
+            disabled
             class="input input-bordered input-primary w-full "
           />
-          <label htmlFor="name">Linkedin Profile:</label>
+          <label htmlFor="name">Linkedin:</label>
           <input
             type="text"
-            name="linkedin"
-            placeholder="Your Linkedin Profile Link"
-            class="input input-bordered input-primary w-full mb-28"
+            name="email"
+            value={Linkedin}
+            disabled
+            class="input input-bordered input-primary w-full "
           />
         </div>
       </div>
